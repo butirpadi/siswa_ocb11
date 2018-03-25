@@ -1,19 +1,16 @@
 <odoo>
   <data>
     
-    <!-- Top menu item -->
-    
+    <!-- Top menu item -->    
     <menuitem name="Master" id="siswa_ocb11.master_menu"/>
     <menuitem name="Kesiswaan" id="siswa_ocb11.kesiswaan_menu"/>
     
-    <!-- menu categories -->
-    
-    <menuitem name="Master" id="siswa_ocb11.submenu_master" parent="siswa_ocb11.master_menu"/>
-    <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu"/>
+    <!-- menu categories -->    
+    <menuitem name="Master" id="siswa_ocb11.submenu_master" parent="siswa_ocb11.master_menu" sequence="1" />
+    <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu" sequence="1" />
     <!-- <menuitem name="Menu 2" id="siswa_ocb11.menu_2" parent="siswa_ocb11.menu_root"/> -->
     
-    <!-- actions -->
-    
+    <!-- actions -->    
     <menuitem name="Tahun Ajaran" id="siswa_ocb11.menu_tahunajaran" parent="siswa_ocb11.submenu_master" action="siswa_ocb11.tahunajaran_new_action_window" sequence="1"/>
     <menuitem name="Rombongan Belajar" id="siswa_ocb11.menu_rombel" parent="siswa_ocb11.submenu_master" action="siswa_ocb11.rombel_new_action_window" sequence="2"/>
     <menuitem name="Pekerjaan" id="siswa_ocb11.menu_pekerjaan" parent="siswa_ocb11.submenu_master" action="siswa_ocb11.pekerjaan_action_window"  sequence="3"/>
