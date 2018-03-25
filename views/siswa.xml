@@ -1,0 +1,128 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="siswa_ocb11.siswa_list">
+      <field name="name">siswa_ocb11_siswa_list</field>
+      <field name="model">siswa_ocb11.siswa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="panggilan"/>
+          <field name="active_rombel_id"/>
+          <field name="alamat"/>
+          <field name="telp"/>
+          <field name="ayah"/>
+          <field name="telp_ayah"/>
+          <field name="ibu"/>
+          <field name="telp_ibu"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_siswa_filter" model="ir.ui.view">
+        <field name="name">siswa.list.select</field>
+        <field name="model">siswa_ocb11.siswa</field>
+        <field name="arch" type="xml">
+            <search string="Search Siswa">
+                <field name="name" string="Nama" filter_domain="['|',('name','ilike',self),('panggilan','ilike',self)]"/>
+                <field name="ayah" string="Ayah"/>
+                <field name="ibu" string="Ibu"/>
+                <group expand="0" string="Group By">
+                    <filter name="active_rombel_id" string="Rombongan Belajar" domain="[]" context="{'group_by':'active_rombel_id'}"/>
+                    <filter name="ayah" string="Ayah" domain="[]" context="{'group_by':'ayah'}"/>
+                    <filter name="pekerjaan_ayah_id" string="Pekerjaan Ayah" domain="[]" context="{'group_by':'pekerjaan_ayah_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="siswa_ocb11.siswa_action_window">
+      <field name="name">Siswa</field>
+      <field name="res_model">siswa_ocb11.siswa</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="siswa_ocb11.siswa_list"/>
+    </record>
+    
+     <record id="view_siswa_form" model="ir.ui.view">
+        <field name="name">siswa.ocb11.form</field>
+        <field name="model">siswa_ocb11.siswa</field>
+        <field name="arch" type="xml">
+            <form string="Siswa" class="o_sale_order">
+              <sheet>
+                  <div class="oe_button_box" name="button_box">
+                      
+                  </div>
+                  <div class="oe_title">
+                      <h1>
+                          <field name="induk" readonly="1"/>
+                      </h1>
+                  </div>
+                  <group>
+                      <group>
+                          <field name="tahunajaran_id" context="{'active_test':False}" />
+                          <field name="name"/>
+                          <field name="nis"/>
+                          <field name="panggilan"/>
+                          <field name="jenis_kelamin"/>
+                          <field name="tempat_lahir"/>
+                          <field name="tanggal_lahir"/>
+                          <field name="alamat"/>
+                          <field name="telp"/>                              
+                      </group>
+                      <group>
+                          <field name="ayah"/>
+                          <field name="pekerjaan_ayah_id"/>
+                          <field name="telp_ayah"/>
+                          <field name="ibu"/>
+                          <field name="pekerjaan_ibu_id"/>
+                          <field name="telp_ibu"/>
+                          <field name="active_rombel_id" readonly="True"/>
+                      </group>
+                  </group>
+                  <notebook>
+                    <page string="Rombongan Belajar">
+                        <field name="rombels" >
+                          <tree editable="bottom"  >
+                            <field name="tahunajaran_id" context="{'active_test': False}" />
+                            <field name="rombel_id" />
+                          </tree>
+                        </field>
+                    </page>
+                  </notebook>
+              </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="siswa_ocb11.siswa_list_by_rombel">
+      <field name="name">siswa_ocb11_siswa_list</field>
+      <field name="model">siswa_ocb11.siswa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="panggilan"/>
+          <field name="active_rombel_id" invisible="1" />
+          <field name="alamat"/>
+          <field name="telp"/>
+          <field name="ayah"/>
+          <field name="telp_ayah"/>
+          <field name="ibu"/>
+          <field name="telp_ibu"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="siswa_ocb11.siswa_by_rombel_action_window">
+      <field name="name">Siswa</field>
+      <field name="res_model">siswa_ocb11.siswa</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{'group_by': ['active_rombel_id']}</field>
+      <field name="view_id" ref="siswa_ocb11.siswa_list_by_rombel"/>
+    </record>
+    
+  </data>
+</odoo>

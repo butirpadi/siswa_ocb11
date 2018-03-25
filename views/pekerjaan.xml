@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <!-- <record model="ir.ui.view" id="siswa_ocb11.siswa_list">
+      <field name="name">siswa_ocb11_siswa_list</field>
+      <field name="model">siswa_ocb11.siswa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="jenis_kelamin"/>
+          <field name="alamat"/>
+          <field name="telp"/>
+          <field name="ayah"/>
+          <field name="telp_ayah"/>
+          <field name="ibu"/>
+          <field name="telp_ibu"/>
+        </tree>
+      </field>
+    </record> -->
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="siswa_ocb11.pekerjaan_action_window">
+      <field name="name">Pekerjaan</field>
+      <field name="res_model">siswa_ocb11.pekerjaan</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+  </data>
+</odoo>

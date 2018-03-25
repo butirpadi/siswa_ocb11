@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="siswa_ocb11.tahunajaran_list">
+      <field name="name">siswa_ocb11_tahunajaran_list</field>
+      <field name="model">siswa_ocb11.tahunajaran</field>
+      <field name="arch" type="xml">
+        <tree decoration-muted="(not active)" >
+          <field name="name"/>
+          <field name="active" widget="boolean_toggle"/>
+        </tree>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="siswa_ocb11.tahunajaran_new_action_window">
+      <field name="name">Tahun Ajaran</field>
+      <field name="res_model">siswa_ocb11.tahunajaran</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{'active_test': False}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="siswa_ocb11.siswa_action_window">
+      <field name="name">Siswa</field>
+      <field name="res_model">siswa_ocb11.siswa</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_tahunajaran_form" model="ir.ui.view">
+        <field name="name">tahunajaran.ocb11.form</field>
+        <field name="model">siswa_ocb11.tahunajaran</field>
+        <field name="arch" type="xml">
+            <form string="Tahun Ajaran" class="o_sale_order">
+              <sheet>
+                  <group>
+                    <field name="name" />
+                  </group>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+  </data>
+</odoo>
