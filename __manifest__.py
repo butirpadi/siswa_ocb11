@@ -31,6 +31,7 @@
         'views/rombel.xml',
         'views/pekerjaan.xml',
         'views/siswa.xml',
+        'views/guru.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

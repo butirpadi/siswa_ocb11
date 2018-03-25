@@ -5,3 +5,4 @@ from . import pekerjaan
 from . import rombel
 from . import siswa
 from . import rombel_siswa
+from . import guru
