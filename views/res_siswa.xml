@@ -1,0 +1,129 @@
+<odoo>
+    <data>
+        <record id="siswa_ocb11.siswa_list" model="ir.ui.view" >
+            <field name="name">siswa_ocb11_siswa_list</field>
+            <field name="model">res.partner</field>
+            <field name="sequence">22</field>            
+            <field name="arch" type="xml">
+                <tree>
+                <field name="name"/>
+                <field name="panggilan"/>
+                <field name="active_rombel_id" string="Rombel" />
+                <field name="street" string="Alamat" />
+                <field name="phone" />
+                <field name="ayah"/>
+                <field name="telp_ayah"/>
+                <field name="ibu"/>
+                <field name="telp_ibu"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="siswa_ocb11.view_siswa_filter" model="ir.ui.view">
+            <field name="name">siswa.list.select</field>
+            <field name="model">res.partner</field>
+            <field name="sequence">22</field>
+            <field name="arch" type="xml">
+                <search string="Search Siswa">
+                    <field name="name" string="Nama" filter_domain="['|',('name','ilike',self),('panggilan','ilike',self)]"/>
+                    <field name="ayah" string="Ayah"/>
+                    <field name="ibu" string="Ibu"/>
+                    <group expand="0" string="Group By">
+                        <filter name="active_rombel_id" string="Rombongan Belajar" domain="[]" context="{'group_by':'active_rombel_id'}"/>
+                        <filter name="ayah" string="Ayah" domain="[]" context="{'group_by':'ayah'}"/>
+                        <filter name="pekerjaan_ayah_id" string="Pekerjaan Ayah" domain="[]" context="{'group_by':'pekerjaan_ayah_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="siswa_ocb11.siswa_form" model="ir.ui.view" >
+            <field name="name">siswa_ocb11.siswa_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="22"/>
+            <field name="arch" type="xml">
+                <field name="company_type" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="parent_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>              
+                <field name="street" position="attributes">
+                    <attribute name="string">Alamat</attribute>
+                </field>    
+                <field name="vat" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="category_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="function" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="email" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="website" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="title" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <field name="lang" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>  
+                <xpath expr="//form/sheet/notebook" position="after">
+                    <notebook name="notebook_rombel" >
+                        <page string="Rombongan Belajar">
+                            <field name="rombels" >
+                            <tree editable="bottom"  >
+                                <field name="tahunajaran_id" context="{'active_test': False}" />
+                                <field name="rombel_id" />
+                            </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+                <xpath expr="//form/sheet/notebook" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='type']" position="before">
+                    <field name="panggilan" /> 
+                    <field name="tahunajaran_id" context="{'active_test':False}" /> 
+                    <field name="induk" /> 
+                    <field name="nis" /> 
+                </xpath>
+                <field name="phone" position="before">
+                    <field name="ayah" /> 
+                    <field name="pekerjaan_ayah_id" /> 
+                    <field name="telp_ayah" /> 
+                    <field name="ibu" /> 
+                    <field name="pekerjaan_ibu_id" /> 
+                    <field name="telp_ibu" /> 
+                    <field name="active_rombel_id" /> 
+                    <field name="is_siswa" invisible="1" /> 
+                </field>
+                <field name="phone" position="replace"></field>  
+                <field name="mobile" position="replace"></field>  
+                <field name="vat" position="before">
+                    <field name="phone" /> 
+                    <field name="mobile" /> 
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="siswa_ocb11.res_siswa_action_window">
+            <field name="name">Siswa</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="view_id">siswa_ocb11.siswa_list</field> -->
+            <!-- <field name="search_view_id">siswa_ocb11.view_siswa_filter</field> -->
+            <field name="domain">[('is_siswa','=',True)]</field>
+            <field name="context">{'default_is_siswa' : 1,'default_customer' : 1}</field>
+            <field name="view_id" ref="siswa_ocb11.siswa_list"/>
+            <field name="search_view_id" ref="siswa_ocb11.view_siswa_filter"/>
+            <field name="form_view_id" ref="siswa_ocb11.siswa_form"/>
+        </record>
+    </data>
+</odoo>

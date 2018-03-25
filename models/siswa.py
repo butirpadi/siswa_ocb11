@@ -4,17 +4,15 @@ from odoo import models, fields, api, _
 from pprint import pprint
 
 class siswa(models.Model):
-    _name = 'siswa_ocb11.siswa'
+    _inherit = 'res.partner'
 
-    active = fields.Boolean(default=True)
-    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Diterima', required=True)
-    induk = fields.Char(string='Internal Reference', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
-    nis = fields.Char(string="NIS", required=True)
-    name = fields.Char(string="Nama", required=True)
+    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Diterima', required=False)
+    induk = fields.Char(string='Internal Reference', required=False, copy=False, readonly=True)
+    nis = fields.Char(string="NIS", required=False)
     panggilan = fields.Char(string="Panggilan")
-    jenis_kelamin = fields.Selection([('laki', 'Laki-laki'), ('perempuan', 'Perempuan')], string='Jenis Kelamin', required=True)
-    tanggal_lahir = fields.Date(string='Tanggal Lahir',required=True)
-    tempat_lahir = fields.Char(string='Tempat Lahir', required=True)
+    jenis_kelamin = fields.Selection([('laki', 'Laki-laki'), ('perempuan', 'Perempuan')], string='Jenis Kelamin', required=False)
+    tanggal_lahir = fields.Date(string='Tanggal Lahir',required=False)
+    tempat_lahir = fields.Char(string='Tempat Lahir', required=False)
     alamat = fields.Char(string='Alamat')
     telp = fields.Char(string='Telp')
     ayah = fields.Char(string='Ayah')
@@ -25,6 +23,7 @@ class siswa(models.Model):
     telp_ibu = fields.Char(string='Telp. Ibu')
     rombels = fields.One2many('siswa_ocb11.rombel_siswa',inverse_name='siswa_id' ,string='Detail Rombongan Belajar')
     active_rombel_id = fields.Many2one('siswa_ocb11.rombel', string='Rombongan Belajar', compute='_compute_rombel', store=True)
+    is_siswa = fields.Boolean(default=False)
 
     @api.depends('rombels')
     def _compute_rombel(self):

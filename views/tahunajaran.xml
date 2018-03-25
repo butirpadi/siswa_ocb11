@@ -22,12 +22,6 @@
       <field name="context">{'active_test': False}</field>
     </record>
 
-    <record model="ir.actions.act_window" id="siswa_ocb11.siswa_action_window">
-      <field name="name">Siswa</field>
-      <field name="res_model">siswa_ocb11.siswa</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
     <record id="view_tahunajaran_form" model="ir.ui.view">
         <field name="name">tahunajaran.ocb11.form</field>
         <field name="model">siswa_ocb11.tahunajaran</field>
