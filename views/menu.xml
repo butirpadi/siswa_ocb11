@@ -8,6 +8,7 @@
     <!-- menu categories -->    
     <menuitem name="Master" id="siswa_ocb11.submenu_master" parent="siswa_ocb11.master_menu" sequence="1" />
     <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu" sequence="1" />
+    <menuitem name="Operations" id="siswa_ocb11.submenu_operation" parent="siswa_ocb11.kesiswaan_menu" sequence="2" />
     <!-- <menuitem name="Menu 2" id="siswa_ocb11.menu_2" parent="siswa_ocb11.menu_root"/> -->
     
     <!-- actions -->    
@@ -18,7 +19,11 @@
     <!-- <menuitem name="Siswa" id="siswa_ocb11.menu_siswa" parent="siswa_ocb11.submenu_master" action="siswa_ocb11.siswa_action_window"  sequence="5"/> -->
     <menuitem name="Siswa" id="siswa_ocb11.menu_siswa" parent="siswa_ocb11.submenu_master" action="siswa_ocb11.res_siswa_action_window"  sequence="5"/>
    
-    <!-- <menuitem name="Siswa" id="siswa_ocb11.menu_siswa_by_rombel" parent="siswa_ocb11.submenu_kesiswaan" action="siswa_ocb11.siswa_by_rombel_action_window"  sequence="1"/> -->
+    <menuitem name="Siswa" id="siswa_ocb11.menu_siswa_by_rombel" parent="siswa_ocb11.submenu_kesiswaan" action="siswa_ocb11.siswa_by_rombel_action_window"  sequence="1"/>
+    
+    <menuitem name="Pindah Kelas" id="siswa_ocb11.menu_pindah_kelas" parent="siswa_ocb11.submenu_operation" action="siswa_ocb11.siswa_by_rombel_action_window"  sequence="1"/>
+    <menuitem name="Mutasi" id="siswa_ocb11.menu_mutasi" parent="siswa_ocb11.submenu_operation" action="siswa_ocb11.siswa_by_rombel_action_window"  sequence="2"/>
+    <menuitem name="Naik Kelas" id="siswa_ocb11.menu_naik_kelas" parent="siswa_ocb11.submenu_operation" action="siswa_ocb11.siswa_by_rombel_action_window"  sequence="3"/>
     
     
   </data>

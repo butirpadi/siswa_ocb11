@@ -125,5 +125,34 @@
             <field name="search_view_id" ref="siswa_ocb11.view_siswa_filter"/>
             <field name="form_view_id" ref="siswa_ocb11.siswa_form"/>
         </record>
+
+        <record model="ir.ui.view" id="siswa_ocb11.siswa_list_by_rombel">
+            <field name="name">siswa_ocb11_siswa_list</field>
+            <field name="model">res.partner</field>
+            <field name="priority" eval="22" />
+            <field name="arch" type="xml">
+                <tree create="false" delete="false" >
+                    <field name="name"/>
+                    <field name="panggilan"/>
+                    <field name="active_rombel_id" invisible="1" />
+                    <field name="alamat"/>
+                    <field name="telp"/>
+                    <field name="ayah"/>
+                    <field name="telp_ayah"/>
+                    <field name="ibu"/>
+                    <field name="telp_ibu"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="siswa_ocb11.siswa_by_rombel_action_window">
+            <field name="name">Siswa</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_siswa','=',True)]</field>
+            <field name="context">{'group_by': ['active_rombel_id'],'default_is_siswa' : 1,'default_customer' : 1}</field>
+            <field name="view_id" ref="siswa_ocb11.siswa_list_by_rombel"/>
+        </record>
+
     </data>
 </odoo>
