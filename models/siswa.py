@@ -24,6 +24,8 @@ class siswa(models.Model):
     rombels = fields.One2many('siswa_ocb11.rombel_siswa',inverse_name='siswa_id' ,string='Detail Rombongan Belajar')
     active_rombel_id = fields.Many2one('siswa_ocb11.rombel', string='Rombongan Belajar', compute='_compute_rombel', store=True)
     is_siswa = fields.Boolean(default=False)
+    mutasi = fields.Boolean(string='Mutasi',default=False)
+    lulus = fields.Boolean(string='Lulus',default=False)
 
     @api.depends('rombels')
     def _compute_rombel(self):

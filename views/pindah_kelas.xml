@@ -5,7 +5,7 @@
             <field name="name">wizard.ocb11.pindah.kelas</field>
             <field name="model">siswa_ocb11.pindah_kelas</field>
             <field name="arch" type="xml">
-                <form string="Rombongan Belajar" class="o_sale_order">
+                <form string="Rombongan Belajar" class="o_sale_order" create="false">
                     <sheet>
                         <group>
                             <group>
@@ -14,7 +14,7 @@
                             </group>
                             <group>
                                 <field name="rombel_asal_id" options="{'no_create_edit': True,'no_open':True}" />
-                                <field name="rombel_tujuan_id" domain="[('jenjang','=',rombel_asal_id.jenjang)]" options="{'no_create_edit': True,'no_open':True}" />
+                                <field name="rombel_tujuan_id" options="{'no_create_edit': True,'no_open':True}" />
                             </group>
                         </group>
                     </sheet>
