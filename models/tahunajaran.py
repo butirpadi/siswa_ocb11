@@ -11,11 +11,9 @@ class tahunajaran(models.Model):
 
 	@api.multi
 	def write(self, values):
-		self.ensure_one()
-		if 'active' in values:
-			if values['active']:
-				self.env['siswa_ocb11.tahunajaran'].search([('id', '!=', self.id)]).write({'active':False})
-				# cr.execute('update siswa_ocb11_tahunajaran set active = True where id != ' + self.id)
-				# print('update tahunajaran')
+		for rec in self:
+			if 'active' in values:
+				if values['active']:
+					rec.env['siswa_ocb11.tahunajaran'].search([('id', '!=', self.id)]).write({'active':False})
 		result = super(tahunajaran, self).write(values)
 		return result

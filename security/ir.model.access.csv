@@ -1,6 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-siswa_admin,Administrator,model_siswa_ocb11_siswa,siswa_ocb11.group_admin,1,1,1,1
-siswa_user,User,model_siswa_ocb11_siswa,siswa_ocb11.group_user,1,0,0,0
 pekerjaan_admin,Administrator,model_siswa_ocb11_pekerjaan,siswa_ocb11.group_admin,1,1,1,1
 pekerjaan_user,User,model_siswa_ocb11_pekerjaan,siswa_ocb11.group_user,1,0,0,0
 tahunajaran_admin,Administrator,model_siswa_ocb11_tahunajaran,siswa_ocb11.group_admin,1,1,1,1

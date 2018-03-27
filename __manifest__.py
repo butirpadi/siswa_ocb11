@@ -33,6 +33,7 @@
         # 'views/siswa.xml',
         'views/res_siswa.xml',
         'views/guru.xml',
+        'views/pindah_kelas.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
