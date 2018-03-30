@@ -33,7 +33,10 @@
         # 'views/siswa.xml',
         'views/res_siswa.xml',
         'views/guru.xml',
-        'views/pindah_kelas.xml',
+        'views/rombel_siswa.xml',
+        'views/wizard_pindah_kelas.xml',
+        'views/wizard_mutasi.xml',
+        'views/wizard_non_aktif.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

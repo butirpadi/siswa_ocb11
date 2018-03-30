@@ -26,7 +26,11 @@ class siswa(models.Model):
     is_siswa = fields.Boolean(default=False)
     mutasi = fields.Boolean(string='Mutasi',default=False)
     lulus = fields.Boolean(string='Lulus',default=False)
-
+    non_aktif_selection = fields.Selection([('mutasi', 'Mutasi'), ('lulus', 'Lulus'), ('meninggal', 'Meninggal Dunia')], string='Keterangan')
+    tanggal_non_aktif = fields.Date('Tanggal Non Aktif')
+    anak_ke = fields.Float('Anak ke')
+    dari_bersaudara = fields.Float('Dari Bersaudara')
+    
     @api.depends('rombels')
     def _compute_rombel(self):
         for rec in self:
