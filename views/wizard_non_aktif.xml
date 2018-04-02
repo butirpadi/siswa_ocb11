@@ -10,6 +10,7 @@
                             <group>
                                 <field name="tahunajaran_id" options="{'no_create_edit': True,'no_open':True}"/>
                                 <field name="siswa_id" options="{'no_create_edit': True,'no_open':True}" />                    
+                                <field name="induk" readonly='1' />                    
                                 <field name="rombel_asal_id" options="{'no_create_edit': True,'no_open':True}" />
                             </group>
                             <group>
