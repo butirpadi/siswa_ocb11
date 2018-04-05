@@ -9,3 +9,5 @@ rombel_siswa_admin,Administrator,model_siswa_ocb11_rombel_siswa,siswa_ocb11.grou
 rombel_siswa_user,User,model_siswa_ocb11_rombel_siswa,siswa_ocb11.group_user,1,0,0,0
 guru_admin,Administrator,model_siswa_ocb11_guru,siswa_ocb11.group_admin,1,1,1,1
 guru_user,User,model_siswa_ocb11_guru,siswa_ocb11.group_user,1,0,0,0
+tahunajaran_jenjang_admin,Administrator,model_siswa_ocb11_tahunajaran_jenjang,siswa_ocb11.group_admin,1,1,1,1
+tahunajaran_jenjang_user,User,model_siswa_ocb11_tahunajaran_jenjang,siswa_ocb11.group_user,1,0,0,0
