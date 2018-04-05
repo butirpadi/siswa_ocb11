@@ -6,5 +6,5 @@ class rombel(models.Model):
     _name = 'siswa_ocb11.rombel'
 
     name = fields.Char(string="Nama", required=True)
-    jenjang = fields.Selection([(0, 'PG'), (1, 'TK A'), (2, 'TK B')], string='Jenjang', required=True, default=0)
+    jenjang = fields.Selection([(1, 'PG'), (2, 'TK A'), (3, 'TK B')], string='Jenjang', required=True, default=1)
     siswas = fields.One2many('siswa_ocb11.rombel_siswa', inverse_name='rombel_id' , string='Siswa')
