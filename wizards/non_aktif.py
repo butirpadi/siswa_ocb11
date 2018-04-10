@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 from pprint import pprint
+from datetime import datetime
 
 class non_aktif(models.TransientModel):
     _name = 'siswa_ocb11.non_aktif'
@@ -10,7 +11,7 @@ class non_aktif(models.TransientModel):
     rombel_asal_id = fields.Many2one('siswa_ocb11.rombel', string="Rombel" , compute='_compute_rombel_asal', required=True)
     non_aktif_selection = fields.Selection([('mutasi', 'Mutasi'), ('lulus', 'Lulus'), ('meninggal', 'Meninggal Dunia')], string='Sebab', required=True)
     keterangan = fields.Char('Keterangan')
-    tanggal  = fields.Date('Tanggal', required=True)
+    tanggal  = fields.Date('Tanggal', required=True, default=datetime.today())
 
     @api.depends('siswa_id')
     def _compute_rombel_asal(self):

@@ -35,8 +35,9 @@
         'views/guru.xml',
         'views/rombel_siswa.xml',
         'views/wizard_pindah_kelas.xml',
-        'views/wizard_mutasi.xml',
+        # 'views/wizard_mutasi.xml',
         'views/wizard_non_aktif.xml',
+        'report/report_siswa.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

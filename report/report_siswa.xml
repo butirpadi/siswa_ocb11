@@ -1,0 +1,191 @@
+<odoo>
+    <data>
+
+        <report
+            id="report_biodata_siswa_action"
+            model="res.partner"
+            string="Report Kas"
+            report_type="qweb-html"
+            name="siswa_ocb11.report_siswa"
+            file="siswa_ocb11.report_siswa"
+            attachment_use="False"
+            print_report_name="'Biodata-%s' % (object.induk + '-' + object.name)"
+            menu="False"
+        />
+
+        <template id="report_siswa">
+            <t t-call="web.html_container">            
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <style>
+                                table.table{
+                                    border:none!important;
+                                    background-color:transparent!important;
+                                }
+
+                                table.table tbody tr td {
+                                    border:none!important;
+                                    background-color:transparent!important;
+                                }
+                            </style>
+                            <div class="row" >
+                                <div class="col-xs-12 text-center" >
+                                    <h3>BIODATA SISWA</h3>
+                                    <span t-field="o.company_id.name" />
+                                </div>
+                                <br/><p>.</p>
+                                <div class="col-xs-12" >                                
+                                    <table class="table table-condensed" >
+                                        <tbody>
+                                            <tr style="border-bottom:thin solid black;" >
+                                                <td colspan="4" >
+                                                    <strong>KETERANGAN SISWA</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>NIS</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.induk"/>
+                                                </td>
+                                                <td class="col-xs-3" rowspan="5" >
+                                                    <img style="border:thin solid darkgrey;padding:10px;" class="col-xs-12"
+                                                    t-attf-src="data:image/*;base64,{{o.image}}"
+                                                    />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Nama</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.name"/>
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Tempat, Tanggal Lahir</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.tempat_lahir"/>, <span t-field="o.tanggal_lahir" t-options ='{"format": "dd-MM-yyyy"}'></span>
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Jenis Kelamin</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-if="o.jenis_kelamin=='perempuan'">
+                                                        Perempuan
+                                                    </t>
+                                                    <t t-if="o.jenis_kelamin=='laki'">
+                                                        Laki-laki
+                                                    </t>
+                                                </td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Alamat</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.street"/>, <t t-esc="o.city"/>, <t t-esc="o.state_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Telp</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.telp"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+                                            <tr style="border-bottom:thin solid black;" >
+                                                <td colspan="4" >
+                                                    <strong>KETERANGAN ORANG TUA/WALI</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Nama Ayah</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.ayah"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Pekerjaan Ayah</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.pekerjaan_ayah_id.name"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Telp</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.telp_ayah"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Nama Ibu</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.ibu"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Pekerjaan Ibu</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.pekerjaan_ibu_id.name"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="col-xs-3" >
+                                                    <strong>Telp</strong>
+                                                </td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-7" >
+                                                    <t t-esc="o.telp_ibu"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>   
+
+                                        </tbody>
+                                    </table>
+                                    
+                                    
+                                    <br/><p>.</p>
+                                </div>
+                            </div>                        
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -2,6 +2,8 @@
 
 from odoo import models, fields, api, _
 from pprint import pprint
+from datetime import datetime, date
+
 
 class siswa(models.Model):
     _inherit = 'res.partner'
@@ -30,6 +32,24 @@ class siswa(models.Model):
     tanggal_non_aktif = fields.Date('Tanggal Non Aktif')
     anak_ke = fields.Float('Anak ke')
     dari_bersaudara = fields.Float('Dari Bersaudara')
+    usia = fields.Float('Usia', compute="_compute_usia")
+
+    def print_biodata(self):
+        print(self.name)
+        return self.env.ref('siswa_ocb11.report_biodata_siswa_action').report_action(self)
+
+    @api.depends('tanggal_lahir')
+    def _compute_usia(self):
+        for rec in self:
+            print(type(rec.tanggal_lahir))
+            # if rec.tanggal_lahir:
+            #     print(rec.tanggal_lahir.strftime('%Y/%m/%d'))
+        # for rec in self:
+        #     if rec.tanggal_lahir:
+        #         born = date(rec.tanggal_lahir)
+        #         today = date.today()
+        #         usia = today.year - born.year - int((today.month, today.day) < (born.month, born.day))
+        #         # print('Usia : ' + str(usia))
     
     @api.depends('rombels')
     def _compute_rombel(self):

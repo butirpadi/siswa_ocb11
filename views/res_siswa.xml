@@ -90,6 +90,11 @@
                 </field>  
                 <field name="phone" position="replace"></field>  
                 <field name="mobile" position="replace"></field> 
+                <xpath expr="//form/sheet" position="before">
+                    <header>
+                        <button style="margin-top:5px;margin-bottom:5px;" name="print_biodata" type="object" string="Cetak Biodata" class="btn btn-default" />
+                    </header>
+                </xpath>
                 <xpath expr="//form/sheet/notebook" position="after">
                     <notebook name="notebook_rombel" >
                         <page string="Biodata" >
@@ -98,9 +103,10 @@
                                     <field name="panggilan" /> 
                                     <field name="tahunajaran_id" context="{'active_test':False}" /> 
                                     <field name="nis" /> 
+                                    <field name="jenis_kelamin" /> 
                                     <field name="tempat_lahir" /> 
                                     <field name="tanggal_lahir" /> 
-                                    <field name="jenis_kelamin" /> 
+                                    <field name="usia" /> 
                                 </group>
                                 <group>
                                     <field name="anak_ke" /> 
