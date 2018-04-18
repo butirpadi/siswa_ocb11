@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+        <record id="siswa_ocb11.wizard_form_presensi_form" model="ir.ui.view">
+            <field name="name">wizard.ocb11.form_presensi</field>
+            <field name="model">siswa_ocb11.wizard_report_form_presensi</field>
+            <field name="arch" type="xml">
+                <form string="Form Presensi Siswa" class="o_sale_order" create="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tahunajaran_id" options="{'no_create_edit': True,'no_open':True}" />
+                            </group>
+                            <group>
+                                <field name="rombel_id" options="{'no_create_edit': True,'no_open':True}" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer class="oe_edit_only" >
+                        <button name="action_save" type="object" string="Print" class="oe_highlight"/>                            
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="siswa_ocb11.wizard_form_presensi_action"
+            name="Form Presensi Siswa"
+            src_model="res.partner"
+            res_model="siswa_ocb11.wizard_report_form_presensi"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"/>
+    </data>
+</odoo>

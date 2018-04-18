@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+
+        <report
+            id="report_form_presensi_action"
+            model="siswa_ocb11.wizard_report_form_presensi"
+            string="Form Presensi"
+            report_type="qweb-html"
+            name="siswa_ocb11.report_form_presensi"
+            file="siswa_ocb11.report_form_presensi"
+            attachment_use="False"
+            print_report_name="'FormPresensiSiswa-%s' % (object.tahunajaran_id.name + '-' + object.rombel_id.name)"
+            menu="False"
+        />
+
+        <template id="report_form_presensi">
+            <t t-call="web.html_container">            
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <style>
+                                table.table, table.table tbody tr td{
+                                    background-color:transparent!important;
+                                }
+
+                                table.table.noborder, table.table.noborder tbody tr td{
+                                    border:none!important;
+                                }
+                            </style>
+                            <div class="row" >
+                                <div class="col-xs-12 text-center" >
+                                    <h3>PRESENSI SISWA</h3>
+                                    <span t-field="o.tahunajaran_id.name" />
+                                </div>
+                                <br/><p>.</p>
+                                <div class="col-xs-12" >   
+                                    <table class="table noborder">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-xs-2" >Rombongan Belajar</td>
+                                                <td style="width:10px;" >:</td>
+                                                <td class="col-xs-4" >
+                                                    <span t-field="o.rombel_id.name" />
+                                                </td>
+                                                <td class="col-xs-2" >Tanggal</td>
+                                                <td style="width:10px;" >:</td>
+                                                <td>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-bordered table-condensed" >
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2" style="width:50px;vertical-align:middle;" class="text-center" >No</th>
+                                                <th rowspan="2" class="col-xs-2 text-center" style="vertical-align:middle;" >Nomor Induk</th>
+                                                <th rowspan="2" style="vertical-align:middle;" >Nama</th>
+                                                <th rowspan="2" class="col-xs-2" style="vertical-align:middle;" >Panggilan</th>
+                                                <th style="width:150px;" colspan="4" class="text-center" >Kehadiran</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="width:30px;"  class="text-center" >H</th>
+                                                <th style="width:30px;" class="text-center" >I</th>
+                                                <th style="width:30px;" class="text-center" >S</th>
+                                                <th style="width:30px;" class="text-center" >A</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="t_index" t-value="1" />
+                                            <t t-foreach="o.siswa_ids.sorted(key=lambda x: x.induk)" t-as="sis">
+                                                <tr>
+                                                    <td>
+                                                        <span t-esc="t_index" />
+                                                    </td>
+                                                    <td class="col-xs-1 text-center" >
+                                                        <span t-field="sis.induk" />
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="sis.name" />
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="sis.panggilan" />
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <t t-set="t_index" t-value="t_index+1" />
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                        
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

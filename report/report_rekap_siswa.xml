@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+        <report
+            id="report_rekap_siswa_action"
+            model="siswa_ocb11.wizard_report_rekap_siswa"
+            string="Rekapitulasi Data Siswa"
+            report_type="qweb-html"
+            name="siswa_ocb11.report_rekap_siswa"
+            file="siswa_ocb11.report_rekap_siswa"
+            attachment_use="False"
+            print_report_name="'Data Siswa-%s' % (object.tahunajaran_id.name + '-' + object.rombel_id.name)"
+            menu="False"
+        />
+
+        <template id="report_rekap_siswa">
+            <t t-call="web.html_container">            
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <style>
+                                table.table{
+                                    background-color:transparent!important;
+                                }
+
+                                table.table tbody tr td {
+                                    background-color:transparent!important;
+                                }
+                            </style>
+                            <div class="row" >
+                                <div class="col-xs-12 text-center" >
+                                    <h3>REKAPITULASI DATA SISWA</h3>
+                                    <span t-field="o.tahunajaran_id.name" /> - 
+                                    <span t-field="o.rombel_id.name" />
+                                </div>
+                                <br/><p>.</p>
+                                <div class="col-xs-12" >                                
+                                    <table class="table table-bordered table-condensed" >
+                                        <thead>
+                                            <tr>
+                                                <th style="width:50px;" >No</th>
+                                                <th class="col-xs-2 text-center" >Nomor Induk</th>
+                                                <th>Nama</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="t_index" t-value="1" />
+                                            <t t-foreach="o.siswa_ids.sorted(key=lambda x: x.induk)" t-as="sis">
+                                                <tr>
+                                                    <td>
+                                                        <span t-esc="t_index" />
+                                                    </td>
+                                                    <td class="col-xs-1 text-center" >
+                                                        <span t-field="sis.induk" />
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="sis.name" />
+                                                    </td>
+                                                </tr>
+                                                <t t-set="t_index" t-value="t_index+1" />
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                        
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
