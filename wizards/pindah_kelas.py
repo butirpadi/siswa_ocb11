@@ -9,7 +9,8 @@ class pindah_kelas(models.TransientModel):
     tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran", default=lambda self: self.env['siswa_ocb11.tahunajaran'].search([('active','=',True)]), required=True)
     # tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran")
     rombel_asal_id = fields.Many2one('siswa_ocb11.rombel', string="Rombel" , compute='_compute_rombel_asal', required=True)
-    rombel_tujuan_id = fields.Many2one('siswa_ocb11.rombel', string="Pindah ke", required=True)
+    # rombel_tujuan_id = fields.Many2one('siswa_ocb11.rombel', string="Pindah ke", required=True, domain=lambda self: [('jenjang_id', '=', self.rombel_asal_id.jenjang_id.id)])
+    rombel_tujuan_id = fields.Many2one('siswa_ocb11.rombel', string="Pindah ke", required=True, )
 
     @api.depends('siswa_id')
     def _compute_rombel_asal(self):
@@ -20,7 +21,8 @@ class pindah_kelas(models.TransientModel):
                 rombel_asal = rec.siswa_id.rombels.search([('siswa_id','=',rec.siswa_id.id),('tahunajaran_id','=',tahunajaran.id)])
                 rec.rombel_asal_id = rec.siswa_id.active_rombel_id.id
                 # filter rombel tujuan
-                print('Jenjang : ' + str(rec.rombel_asal_id.jenjang))
+                # print('Jenjang : ' + str(rec.rombel_asal_id.jenjang))
+                # rec.rombel_tujuan_id.filter(lambda x: x.jenjang_id = rec.rombel_asal_id.jenjang_id.id)
     
     @api.model
     def create(self, vals):

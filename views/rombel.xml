@@ -8,7 +8,8 @@
       <field name="arch" type="xml">
         <tree  >
           <field name="name"/>
-          <field name="jenjang" />
+          <field name="jenjang_id" />
+          <field name="kapasitas" />
         </tree>
       </field>
     </record>
@@ -30,7 +31,8 @@
                   <group>
                     <group>
                         <field name="name" />
-                        <field name="jenjang" />                    
+                        <field name="jenjang_id" />                    
+                        <field name="kapasitas" />                    
                     </group>
                   </group>
               </sheet>

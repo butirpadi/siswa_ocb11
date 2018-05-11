@@ -6,9 +6,9 @@ class wizard_report_form_presensi(models.TransientModel):
     _name = 'siswa_ocb11.wizard_report_form_presensi'
 
     name = fields.Char('Name', default='Report Kas')
-    rombel_id = fields.Many2one('siswa_ocb11.rombel', required=True, string='Rombongan Belajar')
-    siswa_ids = fields.Many2many('res.partner',relation='siswa_ocb11_report_form_presensi_siswa_rel', column1='report_id',column2='siswa_id', string="Data Siswa")
-    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran", default=lambda self: self.env['siswa_ocb11.tahunajaran'].search([('active','=',True)]), required=True)
+    rombel_id = fields.Many2one('siswa_ocb11.rombel', required=True, string='Rombongan Belajar', ondelete="cascade")
+    siswa_ids = fields.Many2many('res.partner',relation='siswa_ocb11_report_form_presensi_siswa_rel', column1='report_id',column2='siswa_id', string="Data Siswa", ondelete="cascade")
+    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran", default=lambda self: self.env['siswa_ocb11.tahunajaran'].search([('active','=',True)]), required=True, ondelete="cascade")
     
     def action_save(self):
         self.ensure_one()

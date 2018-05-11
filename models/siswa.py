@@ -8,8 +8,8 @@ from datetime import datetime, date
 class siswa(models.Model):
     _inherit = 'res.partner'
 
-    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Diterima', required=False)
-    induk = fields.Char(string='Internal Reference', required=False, copy=False, readonly=True)
+    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Diterima', required=False, ondelete="restrict")
+    induk = fields.Char(string='Internal Reference', required=False, copy=False, readonly=True, default="New")
     nis = fields.Char(string="NIS", required=False)
     panggilan = fields.Char(string="Panggilan")
     jenis_kelamin = fields.Selection([('laki', 'Laki-laki'), ('perempuan', 'Perempuan')], string='Jenis Kelamin', required=False)
@@ -33,6 +33,7 @@ class siswa(models.Model):
     anak_ke = fields.Float('Anak ke')
     dari_bersaudara = fields.Float('Dari Bersaudara')
     usia = fields.Float('Usia', compute="_compute_usia")
+    is_siswa_lama = fields.Boolean('Siswa Lama', default=False)
 
     def print_biodata(self):
         print(self.name)

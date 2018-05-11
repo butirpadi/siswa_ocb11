@@ -7,7 +7,8 @@ class rombel_siswa(models.Model):
 
     siswa_id = fields.Many2one('res.partner', string='Siswa', ondelete='restrict')
     rombel_id = fields.Many2one('siswa_ocb11.rombel', string="Rombongan Belajar")
-    jenjang = fields.Selection([(1, 'PG'), (2, 'TK A'), (3, 'TK B')], string='Jenjang', related='rombel_id.jenjang')
+    # jenjang = fields.Selection([(1, 'PG'), (2, 'TK A'), (3, 'TK B')], string='Jenjang', related='rombel_id.jenjang')
+    jenjang_id = fields.Many2one('siswa_ocb11.jenjang',string='Jenjang', related='rombel_id.jenjang_id')
     tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Ajaran')
     # related field to siswa
     induk = fields.Char(related='siswa_id.induk', string='Induk')

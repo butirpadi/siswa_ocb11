@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Siswa",
+    'name': "Base Siswa",
 
     'summary': """
         Aplikasi Database Siswa""",
@@ -28,6 +28,7 @@
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
         'views/tahunajaran.xml',
+        'views/jenjang.xml',
         'views/rombel.xml',
         'views/pekerjaan.xml',
         # 'views/siswa.xml',
