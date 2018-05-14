@@ -8,7 +8,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="panggilan"/>
-                    <field name="induk"/>
+                    <field name="induk" string="No. Induk"/>
                     <field name="nis"/>
                     <field name="active_rombel_id" string="Rombel" />
                     <field name="street" string="Alamat" invisible="1"/>

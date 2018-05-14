@@ -8,7 +8,7 @@
                 <tree create="false" delete="false" >
                     <field name="siswa_id"/>
                     <field name="panggilan"/>
-                    <field name="induk"/>
+                    <field name="induk" string="No. Induk" />
                     <field name="nis"/>
                     <field name="jenis_kelamin"/>
                     <field name="rombel_id" invisible="1"/>

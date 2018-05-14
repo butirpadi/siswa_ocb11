@@ -9,7 +9,7 @@ class siswa(models.Model):
     _inherit = 'res.partner'
 
     tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Diterima', required=False, ondelete="restrict")
-    induk = fields.Char(string='Internal Reference', required=False, copy=False, readonly=True, default="New")
+    induk = fields.Char(string='No. Induk', required=False, copy=False, readonly=True, default="New")
     nis = fields.Char(string="NIS", required=False)
     panggilan = fields.Char(string="Panggilan")
     jenis_kelamin = fields.Selection([('laki', 'Laki-laki'), ('perempuan', 'Perempuan')], string='Jenis Kelamin', required=False)
