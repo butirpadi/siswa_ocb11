@@ -1,6 +1,19 @@
 <odoo>
     <data>
 
+        <record id="format_form_presensi_siswa" model="report.paperformat">
+            <field name="name">Report Bukti Pembayaran</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">3</field>
+        </record>
+
         <report
             id="report_form_presensi_action"
             model="siswa_ocb11.wizard_report_form_presensi"
@@ -11,12 +24,13 @@
             attachment_use="False"
             print_report_name="'FormPresensiSiswa-%s' % (object.tahunajaran_id.name + '-' + object.rombel_id.name)"
             menu="False"
+            paperformat="siswa_ocb11.format_form_presensi_siswa"
         />
 
         <template id="report_form_presensi">
             <t t-call="web.html_container">            
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="web.external_layout">
+                    <t t-call="web.basic_layout">
                         <div class="page">
                             <style>
                                 table.table, table.table tbody tr td{
@@ -28,12 +42,27 @@
                                 }
                             </style>
                             <div class="row" >
-                                <div class="col-xs-12 text-center" >
+                                <div class="col-xs-8" >
+                                    <strong><p style="margin-top:0;margin-bottom:0;text-transform:uppercase;font-weight:bolder;" t-esc="user.company_id.name"/></strong>
+                                    <p style="margin-top:0;margin-bottom:0;" ><span t-esc="user.company_id.street" ></span> <span t-esc="user.company_id.street2" ></span></p>
+                                    <p style="margin-top:0;margin-bottom:0;" ><span t-esc="user.company_id.city" ></span> <span t-esc="user.company_id.state_id.name" ></span> <span t-esc="user.company_id.zip" ></span></p>
+                                    <p style="margin-top:0;margin-bottom:0;" >Telp: <span t-esc="user.company_id.phone" ></span></p>
+                                </div>
+                                <div class="col-xs-4 text-right" >
+                                    <p style="margin-top:0;margin-bottom:0;text-transform:uppercase;font-weight:bolder;"><strong>FORM PRESENSI SISWA</strong></p>
+                                    <p style="margin-top:0;margin-bottom:0;" t-field="o.tahunajaran_id.name" />
+                                    <!-- <p style="margin-top:0;margin-bottom:0;" t-field="o.rombel_id.name" /> -->
+                                    <!-- <p style="margin-top:0;margin-bottom:0;" t-field="o.tanggal" t-field-options='{"format": "dd MMMM y"}'/> -->
+                                </div>
+
+                                <!-- <div class="col-xs-12 text-center" >
                                     <h3>PRESENSI SISWA</h3>
                                     <span t-field="o.tahunajaran_id.name" />
-                                </div>
-                                <br/><p>.</p>
-                                <div class="col-xs-12" >   
+                                </div> -->
+                                <br/><![CDATA[&nbsp;]]>
+                                <br/><![CDATA[&nbsp;]]>
+                                <div class="col-xs-12" >  
+                                    <hr style="border-top: 4px double black;" /> 
                                     <table class="table noborder">
                                         <tbody>
                                             <tr>
@@ -45,7 +74,7 @@
                                                 <td class="col-xs-2" >Tanggal</td>
                                                 <td style="width:10px;" >:</td>
                                                 <td>
-                                                    
+                                                    <span t-field="o.tanggal" t-field-options='{"format": "dd MMMM y"}'/>
                                                 </td>
                                             </tr>
                                         </tbody>
