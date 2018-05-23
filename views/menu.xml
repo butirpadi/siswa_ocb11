@@ -6,10 +6,12 @@
     <menuitem name="Kesiswaan" id="siswa_ocb11.kesiswaan_menu"/>
 
     <!-- menu categories -->    
-    <menuitem name="Master" id="siswa_ocb11.submenu_master" parent="siswa_ocb11.kesiswaan_menu" sequence="1" />
-    <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu" sequence="2" />
-    <menuitem name="Operations" id="siswa_ocb11.submenu_operation" parent="siswa_ocb11.kesiswaan_menu" sequence="3" />
-    <menuitem name="Reports" id="siswa_ocb11.submenu_report" parent="siswa_ocb11.kesiswaan_menu" sequence="4" />
+    <!-- <menuitem name="Dashboard" id="siswa_ocb11.menu_rombel_kanban" parent="siswa_ocb11.kesiswaan_menu" action="siswa_ocb11.siswa_dashboard_view_action" sequence="1"/> -->
+    <menuitem name="Dashboard" id="siswa_ocb11.menu_rombel_dashboard_kanban" parent="siswa_ocb11.kesiswaan_menu" action="siswa_ocb11.rombel_dashboard_view_action" sequence="1"/>
+    <menuitem name="Master" id="siswa_ocb11.submenu_master" parent="siswa_ocb11.kesiswaan_menu" sequence="2" />
+    <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu" sequence="3" />
+    <menuitem name="Operations" id="siswa_ocb11.submenu_operation" parent="siswa_ocb11.kesiswaan_menu" sequence="4" />
+    <menuitem name="Reports" id="siswa_ocb11.submenu_report" parent="siswa_ocb11.kesiswaan_menu" sequence="5" />
     <!-- <menuitem name="Menu 2" id="siswa_ocb11.menu_2" parent="siswa_ocb11.menu_root"/> -->
 
     <!-- actions -->    

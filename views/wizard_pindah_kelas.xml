@@ -14,11 +14,18 @@
                                 <field name="induk" readonly='1' />                    
                             </group>
                             <group>
+                                <!-- <field name="active_rombel_id" options="{'no_create_edit': True,'no_open':True}" /> -->
                                 <field name="rombel_asal_id" options="{'no_create_edit': True,'no_open':True}" />
                                 <field name="rombel_tujuan_id" options="{'no_create_edit': True,'no_open':True}" />
                             </group>
                         </group>
                     </sheet>
+                    <footer class="oe_edit_only" >
+                        <button name="action_pindah_kelas" type="object"
+                            string="Save" class="oe_highlight"/>
+                            
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
                 </form>
             </field>
         </record>

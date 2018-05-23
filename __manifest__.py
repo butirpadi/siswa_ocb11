@@ -35,6 +35,8 @@
         'views/res_siswa.xml',
         'views/guru.xml',
         'views/rombel_siswa.xml',
+        'views/rombel_dashboard.xml',
+        # 'views/siswa_dashboard_view.xml',
         'views/wizard_pindah_kelas.xml',
         # 'views/wizard_mutasi.xml',
         'views/wizard_non_aktif.xml',

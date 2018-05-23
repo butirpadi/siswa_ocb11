@@ -30,6 +30,7 @@
                                                                         ]"/>
                     <group expand="0" string="Group By">
                         <filter name="group_rombel_id" string="Rombongan Belajar" domain="[]" context="{'group_by':'rombel_id'}"/>
+                        <filter name="group_jenis_kelamin" string="Jenis Kelamin" domain="[]" context="{'group_by':'jenis_kelamin'}"/>
                     </group>
                 </search>
             </field>

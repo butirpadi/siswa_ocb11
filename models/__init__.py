@@ -8,3 +8,4 @@ from . import rombel
 from . import siswa
 from . import rombel_siswa
 from . import guru
+from . import rombel_dashboard

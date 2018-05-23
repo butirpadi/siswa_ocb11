@@ -1,48 +1,8 @@
 <odoo>
     <data>
-        <!-- explicit list view definition -->
-
-        <record model="ir.ui.view" id="siswa_ocb11.rombel_list">
-            <field name="name">siswa_ocb11_rombel_list</field>
-            <field name="model">siswa_ocb11.rombel</field>
-            <field name="arch" type="xml">
-                <tree >
-                    <field name="name"/>
-                    <field name="jenjang_id"/>
-                    <field name="kapasitas"/>
-                </tree>
-            </field>
-        </record>
-
-        <!-- actions opening views on models -->
-        <record model="ir.actions.act_window" id="siswa_ocb11.rombel_new_action_window">
-            <field name="name">Rombongan Belajar</field>
-            <field name="res_model">siswa_ocb11.rombel</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <record id="view_rombel_form" model="ir.ui.view">
-            <field name="name">rombel.ocb11.form</field>
-            <field name="model">siswa_ocb11.rombel</field>
-            <field name="arch" type="xml">
-                <form string="Rombongan Belajar" class="o_sale_order">
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="name"/>
-                                <field name="jenjang_id"/>
-                                <field name="kapasitas"/>
-                                <field name="is_show_on_dashboard"/>
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="view_rombel_kanban_form" model="ir.ui.view">
-            <field name="name">rombel.ocb11.kanban</field>
-            <field name="model">siswa_ocb11.rombel</field>
+        <record id="view_rombel_dashboard_kanban_form" model="ir.ui.view">
+            <field name="name">rombel.dashboard.ocb11.kanban</field>
+            <field name="model">siswa_ocb11.rombel_dashboard</field>
             <field name="arch" type="xml">
                 <kanban
                     class="oe_background_grey o_kanban_dashboard o_emphasize_colors o_stock_kanban"
@@ -55,10 +15,10 @@
                                     <div t-attf-class="o_kanban_card_header">
                                         <div class="o_kanban_card_header_title">
                                             <div class="o_primary">
-                                                <field name="name"/>
+                                                <field name="rombel_id"/>
                                             </div>
                                             <div class="o_secondary">
-                                                <field class="o_secondary" name="jenjang_id"/>
+                                                <field class="o_secondary" name="tahunajaran_id"/>
                                             </div>
                                         </div>
                                         <div class="o_kanban_manage_button_section">
@@ -68,32 +28,38 @@
                                     <div class="container o_kanban_card_content">
                                         <div class="row">
                                             <div class="col-xs-6 o_kanban_primary_left">
-                                                <button
-                                                    class="btn btn-primary"
-                                                    name="get_jumlah_siswa"
-                                                    type="object">
-                                                    <span >
-                                                        <t t-esc="record.get_jumlah_siswa"/>
-                                                        Siswa
+                                                <!-- <button class="btn btn-primary" name="get_view_rombel" type="object">
+                                                <span> </span> </button> -->
+                                                <button class="btn btn-primary" name="get_view_rombel" type="object" >
+                                                    <span>
+                                                        <field name="jumlah_siswa" /> Siswa
                                                     </span>
-                                                    <!-- <span t-if="record.code.raw_value =='outgoing'">
-                                                        <t t-esc="record.count_picking_ready.value"/>
-                                                        To Do
-                                                    </span>
-                                                    <span t-if="record.code.raw_value =='internal'">
-                                                        <t t-esc="record.count_picking_ready.value"/>
-                                                        Transfers
-                                                    </span> -->
                                                 </button>
                                             </div>
                                             <div class="col-xs-6 o_kanban_primary_right">
                                                 <!-- <div t-if="record.count_picking_ready.raw_value &gt; 0" class="row"></div>
                                                 -->
 
-                                                <!-- <div t-if="record.count_picking_waiting.raw_value &gt; 0" class="row"> <div
-                                                class="col-xs-9"> <a name="get_action_picking_tree_waiting" type="object">
-                                                Waiting </a> </div> <div class="col-xs-3"> <field name="count_picking_waiting"/>
-                                                </div> </div> -->
+                                                <div class="row">
+                                                    <div class="col-xs-9">
+                                                        <a name="get_view_rombel_laki" type="object">
+                                                            Laki-laki
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3 text-right">
+                                                        <field name="jumlah_laki"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-9">
+                                                        <a name="get_view_rombel_perempuan" type="object">
+                                                            Perempuan
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3  text-right">
+                                                        <field name="jumlah_perempuan"/>
+                                                    </div>
+                                                </div>
 
                                                 <!-- <div t-if="record.count_picking_late.raw_value &gt; 0" class="row"> <div
                                                 class="col-xs-9"> <a class="oe_kanban_stock_picking_type_list"
@@ -109,6 +75,13 @@
                                         </div>
                                     </div>
                                     <div class="container o_kanban_card_manage_pane">
+                                        <div class="row">
+                                            <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                                <div class="o_kanban_card_manage_title">
+                                                    <label>Set Color</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
                                             <div class="col-xs-12">
                                                 <ul class="oe_kanban_colorpicker" data-field="color"/>
@@ -126,12 +99,21 @@
 
         <record
             model="ir.actions.act_window"
-            id="siswa_ocb11.siswa_dashboard_view_action">
+            id="siswa_ocb11.rombel_dashboard_view_action">
             <field name="name">Dashboard</field>
-            <field name="res_model">siswa_ocb11.rombel</field>
+            <field name="res_model">siswa_ocb11.rombel_dashboard</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban</field>
-            <field name="form_view_id" ref="siswa_ocb11.view_rombel_kanban_form"/>
+            <field name="domain">[('tahunajaran_id.active','=',True)]</field>
+            <field name="form_view_id" ref="siswa_ocb11.view_rombel_dashboard_kanban_form"/>
+        </record>
+
+        <!-- detail rombel dashboard, tampilkan rombel_siswa -->
+        <record model="ir.actions.act_window" id="siswa_ocb11.siswa_per_rombel_action_window">
+            <field name="name">Siswa</field>
+            <field name="res_model">siswa_ocb11.rombel_siswa</field>
+            <field name="view_mode">tree</field>
+            <field name="search_view_id" ref="siswa_ocb11.view_rombel_siswa_filter"/>
         </record>
 
     </data>
