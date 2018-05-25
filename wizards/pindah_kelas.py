@@ -21,41 +21,15 @@ class pindah_kelas(models.TransientModel):
                 tahunajaran = rec.tahunajaran_id
                 rombel_asal = rec.siswa_id.rombels.search([('siswa_id','=',rec.siswa_id.id),('tahunajaran_id','=',tahunajaran.id)])
                 rec.rombel_asal_id = rec.siswa_id.active_rombel_id.id
-                # filter rombel tujuan
-                # print('Jenjang : ' + str(rec.rombel_asal_id.jenjang))
-                # rec.rombel_tujuan_id.filter(lambda x: x.jenjang_id = rec.rombel_asal_id.jenjang_id.id)
     
-    # @api.model
-    # def create(self, vals):
-    # #     # print(vals['siswa_id'])
-    # #     # print(vals['tahunajaran_id'])
-    # #     # # print(self.rombel_asal_id)
-    # #     # print(vals['rombel_tujuan_id'])
-    # #     # pprint(vals)
-
-    # #     # rombel_asal = self.env['siswa_ocb11.rombel_siswa'].search([('siswa_id','=',vals['siswa_id']),('tahunajaran_id','=',vals['tahunajaran_id'])])
-    # #     # print(rombel_asal.id)
-
-    # #     # update rombel
-    # #     self.env['siswa_ocb11.rombel_siswa'].search([('siswa_id','=',vals['siswa_id']),('tahunajaran_id','=',vals['tahunajaran_id'])]).write({
-    # #         'rombel_id' : vals['rombel_tujuan_id']
-    # #     })
-    # #     siswa = self.env['res.partner'].search([('id','=',vals['siswa_id'])])
-    # #     print('recompute rombel siswa')
-    # #     siswa._compute_rombel()
-
-    #     # compute jumlah siswa on rombel asal dashboard
-    #     rombel_asal_siswa = self.env['siswa_ocb11.rombel_siswa'].search([
-    #                         ('siswa_id','=',vals['siswa_id']),
-    #                         ('tahunajaran_id','=',vals['tahunajaran_id'])
-    #                     ])
-    #     self.env['siswa_ocb11.rombel_dashboard'].search([
-    #                 ('tahunajaran_id', '=', vals['tahunajaran_id']),
-    #                 ('rombel_id', '=', rombel_asal_siswa.rombel_id.id)
-    #             ]).lets_compute_jumlah_siswa()
-
-    #     result = super(pindah_kelas, self).create(vals)        
-    #     return result
+    @api.onchange('rombel_asal_id')
+    def rombel_asal_change(self):
+        if self.rombel_asal_id:
+            domain = {'rombel_tujuan_id':[
+                            ('jenjang_id','=',self.rombel_asal_id.jenjang_id.id),
+                            ('id','!=',self.rombel_asal_id.id)
+                        ]}
+            return {'domain':domain, 'value':{'rombel_tujuan_id':[]}}
     
     def action_pindah_kelas(self):
         # update rombel
