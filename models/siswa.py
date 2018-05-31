@@ -34,6 +34,7 @@ class siswa(models.Model):
     dari_bersaudara = fields.Float('Dari Bersaudara')
     usia = fields.Float('Usia', compute="_compute_usia")
     is_siswa_lama = fields.Boolean('Siswa Lama', default=False)
+    tahunajaran_non_aktif_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran Non Aktif")
 
     def print_biodata(self):
         print(self.name)

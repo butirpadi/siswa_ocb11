@@ -285,7 +285,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="siswa_ocb11.siswa_non_aktif_action_window">
-            <field name="name">Siswa</field>
+            <field name="name">Siswa Non Aktif</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('active','=',False),('is_siswa','=',True)]</field>

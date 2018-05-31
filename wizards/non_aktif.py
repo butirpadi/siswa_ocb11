@@ -22,15 +22,35 @@ class non_aktif(models.TransientModel):
                 rombel_asal = rec.siswa_id.rombels.search([('siswa_id','=',rec.siswa_id.id),('tahunajaran_id','=',tahunajaran.id)])
                 rec.rombel_asal_id = rec.siswa_id.active_rombel_id.id
     
-    @api.model
-    def create(self, vals):
-        result = super(non_aktif, self).create(vals)
-        # update status siswa        
-        self.env['res.partner'].search([('id','=',result.siswa_id.id)]).write({
-            'active' : False,
-            'non_aktif_selection' : result.non_aktif_selection,
-            'tanggal_non_aktif' : result.tanggal
-        })
+    # @api.model
+    # def create(self, vals):
+    #     result = super(non_aktif, self).create(vals)
+    #     # update status siswa        
+    #     self.env['res.partner'].search([('id','=',result.siswa_id.id)]).write({
+    #         'active' : False,
+    #         'non_aktif_selection' : result.non_aktif_selection,
+    #         'tanggal_non_aktif' : result.tanggal
+    #     })
         
-        return result
+    #     return result
     
+    @api.multi
+    def action_save(self):
+        self.env['res.partner'].search([('id','=',self.siswa_id.id)]).write({
+            'active' : False,
+            'non_aktif_selection' : self.non_aktif_selection,
+            'tanggal_non_aktif' : self.tanggal,
+            'tahunajaran_non_aktif_id' : self.tahunajaran_id.id
+        })
+
+        # tampilkan form non aktif
+        return {
+            'view_type': 'form',
+            'type': 'ir.actions.act_window',
+            'name': 'Siswa Non Aktif',
+            'view_mode': 'tree, form',
+            'res_model': 'res.partner',
+            'target': 'current',
+            'domain' : [('active','=',False),('is_siswa','=',True)],
+            'context' : {'group_by': ['non_aktif_selection']},
+        }
