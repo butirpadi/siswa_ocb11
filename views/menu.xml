@@ -31,7 +31,7 @@
     <menuitem name="Pindah Kelas" id="siswa_ocb11.menu_pindah_kelas" parent="siswa_ocb11.submenu_operation" action="siswa_ocb11.wizard_pindah_kelas"  sequence="1"/>
     <menuitem name="Non Aktif" id="siswa_ocb11.menu_nonaktifkan_siswa" parent="siswa_ocb11.submenu_operation" action="siswa_ocb11.wizard_non_aktif_action"  sequence="3"/>
     
-    <menuitem name="Rekapitulasi" id="siswa_ocb11.menu_rekapitulasi_siswa" parent="siswa_ocb11.submenu_report" action="siswa_ocb11.wizard_rekap_siswa_action"  sequence="1"/>
+    <menuitem name="Siswa Per Rombel" id="siswa_ocb11.menu_rekapitulasi_siswa" parent="siswa_ocb11.submenu_report" action="siswa_ocb11.wizard_rekap_siswa_action"  sequence="1"/>
     <menuitem name="Form Presensi" id="siswa_ocb11.menu_form_presensi" parent="siswa_ocb11.submenu_report" action="siswa_ocb11.wizard_form_presensi_action"  sequence="2"/>
     
     

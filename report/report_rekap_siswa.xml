@@ -16,7 +16,7 @@
         <template id="report_rekap_siswa">
             <t t-call="web.html_container">            
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="web.external_layout">
+                    <t t-call="web.basic_layout">
                         <div class="page">
                             <style>
                                 table.table{
@@ -28,19 +28,27 @@
                                 }
                             </style>
                             <div class="row" >
-                                <div class="col-xs-12 text-center" >
-                                    <h3>REKAPITULASI DATA SISWA</h3>
-                                    <span t-field="o.tahunajaran_id.name" /> - 
-                                    <span t-field="o.rombel_id.name" />
+                                <div class="col-xs-8" >
+                                    <strong><p style="margin-top:0;margin-bottom:0;text-transform:uppercase;font-weight:bolder;" t-esc="user.company_id.name"/></strong>
+                                    <p style="margin-top:0;margin-bottom:0;" ><span t-esc="user.company_id.street" ></span> <span t-esc="user.company_id.street2" ></span></p>
+                                    <p style="margin-top:0;margin-bottom:0;" ><span t-esc="user.company_id.city" ></span> <span t-esc="user.company_id.state_id.name" ></span> <span t-esc="user.company_id.zip" ></span></p>
+                                    <p style="margin-top:0;margin-bottom:0;" >Telp: <span t-esc="user.company_id.phone" ></span></p>
                                 </div>
-                                <br/><p>.</p>
-                                <div class="col-xs-12" >                                
+                                <div class="col-xs-4 text-right" >
+                                    <h3><strong>DATA SISWA</strong></h3>
+                                    <span t-esc="o.rombel_id.name" />
+                                    <span t-esc="o.tahunajaran_id.name" />
+                                </div>
+                                <div class="col-xs-12">
+                                    <hr style="border-top: 4px double black;" />   
                                     <table class="table table-bordered table-condensed" >
                                         <thead>
                                             <tr>
                                                 <th style="width:50px;" >No</th>
                                                 <th class="col-xs-2 text-center" >Nomor Induk</th>
                                                 <th>Nama</th>
+                                                <th>Tanggal<br/>Lahir</th>
+                                                <th>Jenis<br/>Kelamin</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -55,6 +63,17 @@
                                                     </td>
                                                     <td>
                                                         <span t-field="sis.name" />
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="sis.jenis_kelamin=='laki'">
+                                                            Laki-laki
+                                                        </t>
+                                                        <t t-if="sis.jenis_kelamin=='perempuan'">
+                                                            Perempuan
+                                                        </t>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="sis.tanggal_lahir" t-field-options='{"format": "dd MMMM y"}'/>
                                                     </td>
                                                 </tr>
                                                 <t t-set="t_index" t-value="t_index+1" />
