@@ -3,7 +3,7 @@
     
     <!-- Top menu item -->    
     <!-- <menuitem name="Master" id="siswa_ocb11.master_menu"/> -->
-    <menuitem name="Kesiswaan" id="siswa_ocb11.kesiswaan_menu"/>
+    <menuitem name="Kesiswaan" id="siswa_ocb11.kesiswaan_menu" sequence="1" />
 
     <!-- menu categories -->    
     <!-- <menuitem name="Dashboard" id="siswa_ocb11.menu_rombel_kanban" parent="siswa_ocb11.kesiswaan_menu" action="siswa_ocb11.siswa_dashboard_view_action" sequence="1"/> -->
@@ -12,6 +12,7 @@
     <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu" sequence="3" />
     <menuitem name="Operations" id="siswa_ocb11.submenu_operation" parent="siswa_ocb11.kesiswaan_menu" sequence="4" />
     <menuitem name="Reports" id="siswa_ocb11.submenu_report" parent="siswa_ocb11.kesiswaan_menu" sequence="5" />
+    <menuitem name="Dashboard Manager" id="siswa_ocb11.menu_dashboard_manager" parent="siswa_ocb11.kesiswaan_menu" sequence="6" action="siswa_ocb11.rombel_dashboard_manager_view_action" />
     <!-- <menuitem name="Menu 2" id="siswa_ocb11.menu_2" parent="siswa_ocb11.menu_root"/> -->
 
     <!-- actions -->    

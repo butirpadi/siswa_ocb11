@@ -34,6 +34,17 @@ class tahunajaran(models.Model):
 				'tahunajaran_id' : result.id,
 				'jenjang_id' : jj.id
 			})
+		
+		# generate dashboard rombel
+		rombels = self.env['siswa_ocb11.rombel'].search([('name','ilike','%')])
+		for rb in rombels:
+			if rb.is_show_on_dashboard:
+				# create roimbel dashboard
+				self.env['siswa_ocb11.rombel_dashboard'].create({
+                    'rombel_id' : rb.id,
+                    'tahunajaran_id' : result.id,
+                    })
+
 
 		# print(str(result.name) + ' PG')
 		# self.env['siswa_ocb11.tahunajaran_jenjang'].create({

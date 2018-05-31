@@ -116,5 +116,27 @@
             <field name="search_view_id" ref="siswa_ocb11.view_rombel_siswa_filter"/>
         </record>
 
+        <!-- Dashboard Manager  -->
+        <record model="ir.ui.view" id="siswa_ocb11.rombel_dashboard_manager_list">
+            <field name="name">siswa_ocb11_rombel_dashboard_manager_list</field>
+            <field name="model">siswa_ocb11.rombel_dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tahunajaran_id"/>
+                    <field name="rombel_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record
+            model="ir.actions.act_window"
+            id="siswa_ocb11.rombel_dashboard_manager_view_action">
+            <field name="name">Dashboard Manager</field>
+            <field name="res_model">siswa_ocb11.rombel_dashboard</field>
+            <field name="view_mode">tree, form</field>
+            <field name="context">{'group_by':'rombel_id'}</field>
+            <field name="tree_view_id" ref="siswa_ocb11.rombel_dashboard_manager_list" />
+        </record>
+
     </data>
 </odoo>

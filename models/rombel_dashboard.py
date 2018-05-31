@@ -6,7 +6,7 @@ from pprint import pprint
 class rombel_dashboard(models.Model):
     _name = 'siswa_ocb11.rombel_dashboard'
 
-    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Ajaran')
+    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Ajaran', ondelete="cascade")
     rombel_id = fields.Many2one('siswa_ocb11.rombel', string='Rombel', ondelete="cascade")
     jenjang_id = fields.Many2one('siswa_ocb11.jenjang', related="rombel_id.jenjang_id")
     siswa_ids = fields.One2many('siswa_ocb11.rombel_siswa', related='rombel_id.siswas')
