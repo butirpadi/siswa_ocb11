@@ -15,4 +15,7 @@ class rombel_siswa(models.Model):
     nis = fields.Char(related='siswa_id.nis', string='NIS')
     panggilan = fields.Char(related='siswa_id.panggilan', string='Panggilan')
     jenis_kelamin = fields.Selection([('laki', 'Laki-laki'), ('perempuan', 'Perempuan')], string='Jenis Kelamin', related='siswa_id.jenis_kelamin', store=True)
-    
+    ayah = fields.Char(related='siswa_id.ayah', string='Nama Ayah')
+    telp_ayah = fields.Char(related='siswa_id.telp_ayah', string='Telp Ayah')
+    ibu = fields.Char(related='siswa_id.ibu', string='Nama Ibu')
+    telp_ibu = fields.Char(related='siswa_id.telp_ibu', string='Telp Ibu')    
