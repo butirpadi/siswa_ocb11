@@ -11,6 +11,7 @@
             attachment_use="False"
             print_report_name="'Data Siswa-%s' % (object.tahunajaran_id.name + '-' + object.rombel_id.name)"
             menu="False"
+            paperformat="format_report_general"
         />
 
         <template id="report_rekap_siswa">
@@ -41,21 +42,21 @@
                                 </div>
                                 <div class="col-xs-12">
                                     <hr style="border-top: 4px double black;" />   
-                                    <table class="table table-bordered table-condensed" >
+                                    <table class="table table-condensed" >
                                         <thead>
                                             <tr>
-                                                <th style="width:50px;" >No</th>
+                                                <th style="width:50px;" class="text-right" >No</th>
                                                 <th class="col-xs-2 text-center" >Nomor Induk</th>
                                                 <th>Nama</th>
-                                                <th>Tanggal<br/>Lahir</th>
-                                                <th>Jenis<br/>Kelamin</th>
+                                                <th class="col-xs-2 text-center" >Tanggal Lahir</th>
+                                                <th class="col-xs-2 text-center" >Jenis Kelamin</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <t t-set="t_index" t-value="1" />
                                             <t t-foreach="o.siswa_ids.sorted(key=lambda x: x.induk)" t-as="sis">
                                                 <tr>
-                                                    <td>
+                                                    <td class="text-right" >
                                                         <span t-esc="t_index" />
                                                     </td>
                                                     <td class="col-xs-1 text-center" >
@@ -64,7 +65,10 @@
                                                     <td>
                                                         <span t-field="sis.name" />
                                                     </td>
-                                                    <td>
+                                                    <td class="text-center" >
+                                                        <span t-field="sis.tanggal_lahir" t-field-options='{"format": "dd MMMM y"}'/>
+                                                    </td>
+                                                    <td class="text-center" >
                                                         <t t-if="sis.jenis_kelamin=='laki'">
                                                             Laki-laki
                                                         </t>
@@ -72,12 +76,16 @@
                                                             Perempuan
                                                         </t>
                                                     </td>
-                                                    <td>
-                                                        <span t-field="sis.tanggal_lahir" t-field-options='{"format": "dd MMMM y"}'/>
-                                                    </td>
                                                 </tr>
                                                 <t t-set="t_index" t-value="t_index+1" />
                                             </t>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

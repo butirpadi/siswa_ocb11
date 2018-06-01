@@ -83,7 +83,7 @@
                                     <table class="table table-bordered table-condensed" >
                                         <thead>
                                             <tr>
-                                                <th rowspan="2" style="width:50px;vertical-align:middle;" class="text-center" >No</th>
+                                                <th rowspan="2" style="width:50px;vertical-align:middle;" class="text-right" >No</th>
                                                 <th rowspan="2" class="col-xs-2 text-center" style="vertical-align:middle;" >Nomor Induk</th>
                                                 <th rowspan="2" style="vertical-align:middle;" >Nama</th>
                                                 <th rowspan="2" class="col-xs-2" style="vertical-align:middle;" >Panggilan</th>
@@ -100,7 +100,7 @@
                                             <t t-set="t_index" t-value="1" />
                                             <t t-foreach="o.siswa_ids.sorted(key=lambda x: x.induk)" t-as="sis">
                                                 <tr>
-                                                    <td>
+                                                    <td class="text-right" >
                                                         <span t-esc="t_index" />
                                                     </td>
                                                     <td class="col-xs-1 text-center" >
