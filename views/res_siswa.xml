@@ -154,7 +154,7 @@
                             <group>
                                 <field name="active_rombel_id" />                             
                             </group>
-                            <field name="rombels" >
+                            <field name="rombels" readonly="1" >
                                 <tree editable="bottom"  >
                                     <field name="tahunajaran_id" context="{'active_test': False}" />
                                     <field name="rombel_id" />
