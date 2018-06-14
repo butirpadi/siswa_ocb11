@@ -127,7 +127,7 @@
                                             attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
                                         <field name="zip" placeholder="ZIP" class="o_address_zip"
                                             attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                                        <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                                        <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}"
                                             attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                                     </div>
                                     <field name="phone" /> 
@@ -190,7 +190,7 @@
                             attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
                         <field name="zip" placeholder="ZIP" class="o_address_zip"
                             attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
-                        <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'
+                        <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}"
                             attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                     </div>
                     <field name="ayah" /> 

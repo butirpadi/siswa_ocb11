@@ -9,10 +9,10 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="tahunajaran_id" options="{'no_create_edit': True,'no_open':True}" />
+                                <field name="tahunajaran_id" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />
                             </group>
                             <group>
-                                <field name="rombel_id" options="{'no_create_edit': True,'no_open':True}" />
+                                <field name="rombel_id" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />
                             </group>
                         </group>
                     </sheet>
