@@ -9,7 +9,7 @@
                 <tree >
                     <field name="name"/>
                     <field name="jenjang_id"/>
-                    <field name="kapasitas"/>
+                    <field name="kapasitas" invisible="1" />
                 </tree>
             </field>
         </record>
@@ -31,7 +31,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="jenjang_id"/>
-                                <field name="kapasitas"/>
+                                <field name="kapasitas" invisible="1" />
                                 <field name="is_show_on_dashboard"/>
                             </group>
                         </group>
