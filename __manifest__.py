@@ -20,13 +20,14 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'odoo_web_login'],
 
     # always loaded
     'data': [
         'security/user_groups.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
+        'data/ir_model_data.xml',
         'views/tahunajaran.xml',
         'views/jenjang.xml',
         'views/rombel.xml',

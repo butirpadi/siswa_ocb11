@@ -28,12 +28,10 @@
                 <form string="Rombongan Belajar" class="o_sale_order">
                     <sheet>
                         <group>
-                            <group>
-                                <field name="name"/>
-                                <field name="jenjang_id"/>
-                                <field name="kapasitas" invisible="1" />
-                                <field name="is_show_on_dashboard"/>
-                            </group>
+                            <field name="name"/>
+                            <field name="jenjang_id" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />
+                            <field name="kapasitas" invisible="1" />
+                            <field name="is_show_on_dashboard"  attrs="{'invisible': [('name', '=', False)]}" />
                         </group>
                     </sheet>
                 </form>
