@@ -48,6 +48,7 @@
         'report/report_rekap_siswa.xml',
         'report/report_form_presensi.xml',
         'views/menu.xml',
+        'data/ir_default_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

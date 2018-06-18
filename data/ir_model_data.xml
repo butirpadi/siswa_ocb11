@@ -22,5 +22,16 @@
             <value eval="{'value': 'False'}"/>
         </function>
 
+        
+        
+        <!-- add default domain to hide root user -->
+        <!-- <function name="write" model="ir.actions.act_window">
+            <function name="search" model="ir.model.data">
+                <value eval="[('name', '=', 'action_res_users')]"/>
+            </function>
+            
+            <value eval="{'domain': [('login','!=','root')]}"/>
+        </function> -->
+
     </data>
 </odoo>

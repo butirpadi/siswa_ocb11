@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="siswa_ocb11_res_user_form_filter" model="ir.ui.view" >
+            <field name="name">siswa_ocb11.res_user_form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_search"/>
+            <field name="priority" eval="20"/>
+                <search string="Search Siswa">
+                    <field name="login" string="Nama" filter_domain="['|','|','|','|','|',('name','ilike',self),
+                                                                        ('panggilan','ilike',self),
+                                                                        ('ayah','ilike',self),
+                                                                        ('ibu','ilike',self),
+                                                                        ('nis','ilike',self),
+                                                                        ('induk','ilike',self),
+                                                                        ]"/>
+                </search>
+        </record>
+    </data>
+</odoo>

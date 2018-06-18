@@ -82,3 +82,18 @@ class siswa(models.Model):
 #     @api.depends('value')
 #     def _value_pc(self):
 #         self.value2 = float(self.value) / 100
+
+    @api.model
+    def set_default_domain_user(self):
+        # get res_id
+        action_obj = self.env['ir.model.data'].search([
+            ('name','=','action_res_users')
+            ])
+
+        # update domain 
+        self.env['ir.actions.act_window'].search([
+            ('id', '=', action_obj[0].res_id)
+        ]).write({
+            'domain' : "[('login','!=','root')]"
+        })
+        
