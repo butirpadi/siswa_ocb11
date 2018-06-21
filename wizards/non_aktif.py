@@ -8,7 +8,7 @@ class non_aktif(models.TransientModel):
     siswa_id = fields.Many2one('res.partner', string="Siswa", domain=[('is_siswa','=',True)], required=True)
     induk = fields.Char('Induk',related='siswa_id.induk')
     tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran", default=lambda self: self.env['siswa_ocb11.tahunajaran'].search([('active','=',True)]), required=True)
-    rombel_asal_id = fields.Many2one('siswa_ocb11.rombel', string="Rombel" , compute='_compute_rombel_asal', required=True)
+    rombel_asal_id = fields.Many2one('siswa_ocb11.rombel', string="Rombel" , compute='_compute_rombel_asal')
     non_aktif_selection = fields.Selection([('mutasi', 'Mutasi'), ('lulus', 'Lulus'), ('meninggal', 'Meninggal Dunia')], string='Sebab', required=True)
     keterangan = fields.Char('Keterangan')
     tanggal  = fields.Date('Tanggal', required=True, default=datetime.today())
@@ -42,6 +42,14 @@ class non_aktif(models.TransientModel):
             'tanggal_non_aktif' : self.tanggal,
             'tahunajaran_non_aktif_id' : self.tahunajaran_id.id
         })
+
+        # set non active data di rombel_siswa
+        self.env['siswa_ocb11.rombel_siswa'].search([
+                ('siswa_id', '=', self.siswa_id.id),
+                ('tahunajaran_id', '=', self.tahunajaran_id.id),
+            ]).write({
+                'active' : False
+            })
 
         # tampilkan form non aktif
         return {

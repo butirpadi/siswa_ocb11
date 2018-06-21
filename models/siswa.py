@@ -96,4 +96,21 @@ class siswa(models.Model):
         ]).write({
             'domain' : "[('login','!=','root')]"
         })
-        
+    
+    @api.multi
+    def toggle_active(self):
+        res = super(siswa, self).toggle_active()
+        if self.active:
+            print('Active kan rombel siswa')
+            # active kan di rombel siswa
+            # self.env['siswa_ocb11.rombel_siswa'].search([
+            #     ('siswa_id', '=', self.id),
+            #     ('rombel_id', '=', self.active_rombel_id.id),
+            # ]).write({
+            #     'active' : True
+            # })
+
+            self.env.cr.execute("update siswa_ocb11_rombel_siswa set active = 'True' where siswa_id = '" + str(self.id) + "' and rombel_id = " + str(self.active_rombel_id.id) )
+            # self.env.cr.fetchall()
+
+        return res
