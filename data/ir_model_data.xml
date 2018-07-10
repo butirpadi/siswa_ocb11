@@ -22,6 +22,31 @@
             <value eval="{'value': 'False'}"/>
         </function>
 
+        <!-- Set default currency ke rupiah -->
+        <!-- <function name="write" model="res.currency">
+            <function name="search" model="res.currency">
+                <value eval="[('name', '=', 'EUR')]"/>
+            </function>
+            
+            <value eval="{'active': 'False'}"/>
+        </function>
+
+        <function name="write" model="res.currency">
+            <function name="search" model="res.currency">
+                <value eval="[('name', '=', 'USD')]"/>
+            </function>
+            
+            <value eval="{'active': 'False'}"/>
+        </function>
+
+        <function name="write" model="res.currency">
+            <function name="search" model="res.currency">
+                <value eval="[('name', '=', 'IDR')]"/>
+            </function>
+            
+            <value eval="{'active': 'True'}"/>
+        </function> -->
+
         
         
         <!-- add default domain to hide root user -->

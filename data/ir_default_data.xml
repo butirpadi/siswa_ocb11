@@ -5,5 +5,19 @@
                 model="res.partner" 
                 name="set_default_domain_user"  
                 />
+        
+        <!-- Set Rupiah Active Only -->
+        <function 
+                id="function_set_active_rupiah" 
+                model="res.currency" 
+                name="set_active_rupiah_only"  
+                />
+
+        <!-- set default logo modoo -->
+        <function 
+                id="function_set_modoo_logo" 
+                model="res.company" 
+                name="set_modoo_logo"  
+                />
     </data>
 </odoo>

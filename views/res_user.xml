@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record id="siswa_ocb11_res_user_form_filter" model="ir.ui.view" >
+        <!-- <record id="siswa_ocb11_res_user_form_filter" model="ir.ui.view" >
             <field name="name">siswa_ocb11.res_user_form</field>
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.view_users_search"/>
@@ -14,6 +14,17 @@
                                                                         ('induk','ilike',self),
                                                                         ]"/>
                 </search>
+        </record> -->
+
+        <record id="set_timezone_action_res_users" model="ir.actions.act_window">
+            <field name="name">Users</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="inherit_id" ref="base.action_res_users"/>
+            <field name="priority" eval="20"/>
+            <field name="context">{'search_default_no_share': 1, 'default_tz': 'Asia/Jakarta'}</field>            
         </record>
     </data>
 </odoo>

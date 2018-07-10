@@ -9,7 +9,8 @@ class non_aktif(models.TransientModel):
     induk = fields.Char('Induk',related='siswa_id.induk')
     tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string="Tahun Ajaran", default=lambda self: self.env['siswa_ocb11.tahunajaran'].search([('active','=',True)]), required=True)
     rombel_asal_id = fields.Many2one('siswa_ocb11.rombel', string="Rombel" , compute='_compute_rombel_asal')
-    non_aktif_selection = fields.Selection([('mutasi', 'Mutasi'), ('lulus', 'Lulus'), ('meninggal', 'Meninggal Dunia')], string='Sebab', required=True)
+    # non_aktif_selection = fields.Selection([('mutasi', 'Mutasi'), ('lulus', 'Lulus'), ('meninggal', 'Meninggal Dunia')], string='Sebab', required=True)
+    non_aktif_selection = fields.Selection([('mutasi', 'Mutasi'), ('meninggal', 'Meninggal Dunia')], string='Sebab', required=True)
     keterangan = fields.Char('Keterangan')
     tanggal  = fields.Date('Tanggal', required=True, default=datetime.today())
 
