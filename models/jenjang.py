@@ -6,3 +6,4 @@ class jenjang(models.Model):
     _name = 'siswa_ocb11.jenjang'
 
     name = fields.Char(string="Nama", required=True)
+    order = fields.Integer('Order')
