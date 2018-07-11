@@ -48,5 +48,28 @@
             <field name="context">{'search_default_group_rombel_id':1}</field>
             <field name="search_view_id" ref="siswa_ocb11.view_rombel_siswa_filter"/>
         </record>
+
+        <record id="view_rombel_siswa_form" model="ir.ui.view">
+            <field name="name">rombel_siswa.ocb11.form</field>
+            <field name="model">siswa_ocb11.rombel_siswa</field>
+            <field name="arch" type="xml">
+                <form string="Rombel Siswa" class="o_sale_order">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="siswa_id" string='Name'/>
+                                <field name="induk"/>
+                                <field name="nis"/>
+                            </group>
+                            <group>
+                                <field name="tahunajaran_id"/>
+                                <field name="rombel_id"/>                            
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
     </data>
 </odoo>
