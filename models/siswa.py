@@ -122,3 +122,15 @@ class siswa(models.Model):
             # self.env.cr.fetchall()
 
         return res
+    
+    @api.multi
+    def write(self, vals):
+        
+        pprint(vals)
+        if 'rombels' in vals:
+            # update jumlah siswa di rombel tersebut
+            # get rombel id
+            vals['rombels']
+            
+        result = super(siswa, self).write(vals)
+        return result
