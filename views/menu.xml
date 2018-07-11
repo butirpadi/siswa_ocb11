@@ -12,8 +12,11 @@
     <menuitem name="Kesiswaan" id="siswa_ocb11.submenu_kesiswaan" parent="siswa_ocb11.kesiswaan_menu" sequence="3" />
     <menuitem name="Operations" id="siswa_ocb11.submenu_operation" parent="siswa_ocb11.kesiswaan_menu" sequence="4" />
     <menuitem name="Reports" id="siswa_ocb11.submenu_report" parent="siswa_ocb11.kesiswaan_menu" sequence="5" />
-    <menuitem name="Dashboard Manager" id="siswa_ocb11.menu_dashboard_manager" parent="siswa_ocb11.kesiswaan_menu" sequence="6" action="siswa_ocb11.rombel_dashboard_manager_view_action" groups="siswa_ocb11.group_admin" />
-    <!-- <menuitem name="Menu 2" id="siswa_ocb11.menu_2" parent="siswa_ocb11.menu_root"/> -->
+
+    <menuitem name="Configuration" id="siswa_ocb11.menu_configuration" parent="siswa_ocb11.kesiswaan_menu" 
+        sequence="6" groups="siswa_ocb11.group_admin" />
+    <menuitem name="Dashboard Manager" id="siswa_ocb11.menu_dashboard_manager" parent="siswa_ocb11.menu_configuration" 
+        sequence="61" action="siswa_ocb11.rombel_dashboard_manager_view_action" />
 
     <!-- actions -->    
     <menuitem name="Jenjang" id="siswa_ocb11.menu_jenjang" parent="siswa_ocb11.submenu_master" action="siswa_ocb11.jenjang_action_window" sequence="1"/>
