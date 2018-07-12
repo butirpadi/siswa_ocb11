@@ -7,3 +7,4 @@ class jenjang(models.Model):
 
     name = fields.Char(string="Nama", required=True)
     order = fields.Integer('Order')
+    desc = fields.Char(string="Keterangan")

@@ -21,6 +21,31 @@
             </field>    
         </record>
 
+        <record id="siswa_ocb11.rombel_siswa_list_root" model="ir.ui.view" >
+            <field name="name">siswa_ocb11_rombel_siswa_list_root</field>
+            <field name="model">siswa_ocb11.rombel_siswa</field>
+            <field name="inherit_id" ref="siswa_ocb11.rombel_siswa_list"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+            <field name="priority" eval="18"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree create="false" >
+                    <field name="siswa_id"/>
+                    <field name="panggilan"/>
+                    <field name="induk" string="No. Induk" />
+                    <field name="nis"/>
+                    <field name="jenis_kelamin"/>
+                    <field name="ayah"/>
+                    <field name="telp_ayah"/>
+                    <field name="ibu"/>
+                    <field name="telp_ibu"/>
+                    <field name="rombel_id" invisible="1"/>
+                    <field name="tahunajaran_id" invisible="1"/>
+                </tree>
+                </xpath>
+            </field>
+        </record>
+
         <record id="siswa_ocb11.view_rombel_siswa_filter" model="ir.ui.view">
             <field name="name">rombel.siswa.list.select</field>
             <field name="model">siswa_ocb11.rombel_siswa</field>
