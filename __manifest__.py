@@ -43,6 +43,7 @@
         'views/wizard_non_aktif.xml',
         'views/wizard_report_rekap_siswa.xml',
         'views/wizard_report_form_presensi.xml',
+        # 'views/wizard_naik_kelas.xml',
         'report/report_master.xml',
         'report/report_siswa.xml',
         'report/report_rekap_siswa.xml',

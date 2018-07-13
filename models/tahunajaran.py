@@ -36,6 +36,9 @@ class tahunajaran(models.Model):
 			})
 		
 		# generate dashboard rombel
+		print('----------------------------------------')
+		print('Generate rombel Dashboard')
+		print('----------------------------------------')
 		rombels = self.env['siswa_ocb11.rombel'].search([('name','ilike','%')])
 		for rb in rombels:
 			if rb.is_show_on_dashboard:
