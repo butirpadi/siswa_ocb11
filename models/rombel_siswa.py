@@ -7,12 +7,12 @@ class rombel_siswa(models.Model):
 
     name = fields.Char('Name', related='siswa_id.name')
     active = fields.Boolean('Active', default=True)
+    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Ajaran')
     siswa_id = fields.Many2one('res.partner', string='Siswa', ondelete='restrict')
     rombel_id = fields.Many2one('siswa_ocb11.rombel', string="Rombongan Belajar")
     # jenjang = fields.Selection([(1, 'PG'), (2, 'TK A'), (3, 'TK B')], string='Jenjang', related='rombel_id.jenjang')
-    jenjang_id = fields.Many2one('siswa_ocb11.jenjang',string='Jenjang', related='rombel_id.jenjang_id')
-    tahunajaran_id = fields.Many2one('siswa_ocb11.tahunajaran', string='Tahun Ajaran')
     # related field to siswa
+    jenjang_id = fields.Many2one('siswa_ocb11.jenjang',string='Jenjang', related='rombel_id.jenjang_id')
     induk = fields.Char(related='siswa_id.induk', string='Induk')
     nis = fields.Char(related='siswa_id.nis', string='NIS')
     panggilan = fields.Char(related='siswa_id.panggilan', string='Panggilan')
