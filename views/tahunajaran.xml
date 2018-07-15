@@ -6,9 +6,12 @@
       <field name="name">siswa_ocb11_tahunajaran_list</field>
       <field name="model">siswa_ocb11.tahunajaran</field>
       <field name="arch" type="xml">
-        <tree decoration-muted="(not active)" >
+        <tree decoration-muted="(not active)" default_order="sort_order" >
           <field name="name"/>
           <field name="active" widget="boolean_toggle"/>
+          <field name="sort_order"  />
+          <button name="shift_up" string="Up" class="oe_highlight" type="object" />
+          <button name="shift_down" string="Down" class="oe_highlight" type="object" />
         </tree>
       </field>
     </record>
