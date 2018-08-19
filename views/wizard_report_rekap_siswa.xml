@@ -17,7 +17,7 @@
                         </group>
                     </sheet>
                     <footer class="oe_edit_only" >
-                        <button name="action_save" type="object" string="Print" class="oe_highlight"/>                            
+                        <button name="action_save" type="object" string="Submit" class="oe_highlight"/>                            
                         <button special="cancel" string="Cancel"/>
                     </footer>
                 </form>

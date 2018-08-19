@@ -27,69 +27,95 @@
                                 table.table tbody tr td {
                                     background-color:transparent!important;
                                 }
+
+                                table.table-data thead tr th{
+                                    border-top: thin solid black !important;
+                                    border-bottom: thin solid black !important;
+                                }
                             </style>
                             <div class="row" >
-                                <div class="col-xs-8" >
-                                    <strong><p style="margin-top:0;margin-bottom:0;text-transform:uppercase;font-weight:bolder;" t-esc="user.company_id.name"/></strong>
-                                    <p style="margin-top:0;margin-bottom:0;" ><span t-esc="user.company_id.street" ></span> <span t-esc="user.company_id.street2" ></span></p>
-                                    <p style="margin-top:0;margin-bottom:0;" ><span t-esc="user.company_id.city" ></span> <span t-esc="user.company_id.state_id.name" ></span> <span t-esc="user.company_id.zip" ></span></p>
-                                    <p style="margin-top:0;margin-bottom:0;" >Telp: <span t-esc="user.company_id.phone" ></span></p>
-                                </div>
-                                <div class="col-xs-4 text-right" >
-                                    <h3><strong>DATA SISWA</strong></h3>
-                                    <span t-esc="o.rombel_id.name" />
-                                    <span t-esc="o.tahunajaran_id.name" />
-                                </div>
+                                
                                 <div class="col-xs-12">
-                                    <hr style="border-top: 4px double black;" />   
-                                    <table class="table table-condensed" >
+                                    <div class="text-center">
+                                        <h3><strong>DATA SISWA</strong></h3>
+                                        <span t-esc="o.tahunajaran_id.name" /> / <span t-esc="o.rombel_id.name" />
+                                    </div>
+                                    <br/><![CDATA[&nbsp;]]>
+                                    <table class="table table-condensed table-data" >
                                         <thead>
                                             <tr>
-                                                <th style="width:50px;" class="text-right" >No</th>
-                                                <th class="col-xs-2 text-center" >Nomor Induk</th>
-                                                <th>Nama</th>
-                                                <th class="col-xs-2 text-center" >Tanggal Lahir</th>
-                                                <th class="col-xs-2 text-center" >Jenis Kelamin</th>
+                                                <th class="text-center" >No</th>
+                                                <th class="text-center" >No. Induk</th>
+                                                <th >Nama</th>
+                                                <th class="text-center" >Jenis Kelamin</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <t t-set="t_index" t-value="1" />
-                                            <t t-foreach="o.siswa_ids.sorted(key=lambda x: x.induk)" t-as="sis">
+                                            <t t-set="row_num" t-value="1" />
+                                            <t t-set="sum_laki" t-value="0" />
+                                            <t t-set="sum_perempuan" t-value="0" />
+                                            <t t-foreach="o.siswa_ids.sorted(key=lambda x: x.induk)" t-as="cs">
                                                 <tr>
-                                                    <td class="text-right" >
-                                                        <span t-esc="t_index" />
+                                                    <td class="text-center" >
+                                                        <t t-esc="row_num" />
+                                                        <t t-set="row_num" t-value="row_num+1" />
                                                     </td>
-                                                    <td class="col-xs-1 text-center" >
-                                                        <span t-field="sis.induk" />
+                                                    <td class="text-center" >
+                                                        <span t-field="cs.induk" />                                                        
                                                     </td>
                                                     <td>
-                                                        <span t-field="sis.name" />
+                                                        <span t-field="cs.name" />
                                                     </td>
                                                     <td class="text-center" >
-                                                        <span t-field="sis.tanggal_lahir" t-field-options='{"format": "dd MMMM y"}'/>
-                                                    </td>
-                                                    <td class="text-center" >
-                                                        <t t-if="sis.jenis_kelamin=='laki'">
+                                                        <t t-if="cs.jenis_kelamin=='laki'">
                                                             Laki-laki
+                                                            <t t-set="sum_laki" t-value="sum_laki+1" />
                                                         </t>
-                                                        <t t-if="sis.jenis_kelamin=='perempuan'">
+                                                        <t t-if="cs.jenis_kelamin=='perempuan'">
                                                             Perempuan
+                                                            <t t-set="sum_perempuan" t-value="sum_perempuan+1" />
                                                         </t>
                                                     </td>
-                                                </tr>
-                                                <t t-set="t_index" t-value="t_index+1" />
+                                                </tr>                                                
                                             </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-xs-3" >
+                                    <table class="table table-bordered" >
+                                        <tbody>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td  >
+                                                    <strong>Laki-laki</strong>
+                                                </td>
+                                                <td class="text-right" >
+                                                    <t t-esc="sum_laki"  />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                    <strong>Perempuan</strong>
+                                                </td>
+                                                <td class="text-right" >
+                                                    <t t-esc="sum_perempuan"  />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Total</strong>
+                                                </td>
+                                                <td class="text-right" >
+                                                    <t t-esc="sum_laki+sum_perempuan" />
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>                        
+                        </div>
+                        <div class="footer" >
+                            <span>Page </span><span class="page" /> of <span class="topage" />
                         </div>
                     </t>
                 </t>
