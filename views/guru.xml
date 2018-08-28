@@ -39,7 +39,7 @@
         <field name="name">guru.ocb11.form</field>
         <field name="model">siswa_ocb11.guru</field>
         <field name="arch" type="xml">
-            <form string="Guru" class="o_sale_order">
+            <form duplicate="0" string="Guru" class="o_sale_order">
               <sheet>
                   <group>
                       <group>

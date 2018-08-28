@@ -5,7 +5,7 @@
             <field name="name">wizard.ocb11.wizard_naik_kelas</field>
             <field name="model">siswa_ocb11.wizard_naik_kelas</field>
             <field name="arch" type="xml">
-                <form string="Kenaikan Kelas" class="o_sale_order" create="false">
+                <form duplicate="0" string="Kenaikan Kelas" class="o_sale_order" create="false">
                     <sheet>
                         <group>
                             <group>

@@ -5,7 +5,7 @@
             <field name="name">wizard.ocb11.rekap_siswa</field>
             <field name="model">siswa_ocb11.wizard_report_rekap_siswa</field>
             <field name="arch" type="xml">
-                <form string="Rekapitulasi Siswa" class="o_sale_order" create="false">
+                <form duplicate="0" string="Rekapitulasi Siswa" class="o_sale_order" create="false">
                     <sheet>
                         <group>
                             <group>

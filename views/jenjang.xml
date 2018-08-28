@@ -24,7 +24,7 @@
         <field name="name">jenjang.ocb11.form</field>
         <field name="model">siswa_ocb11.jenjang</field>
         <field name="arch" type="xml">
-            <form string="Jenjang" class="o_sale_order">
+            <form duplicate="0" string="Jenjang" class="o_sale_order">
               <sheet>
                   <group>
                     <group>

@@ -5,7 +5,7 @@
             <field name="name">wizard.ocb11.form_presensi</field>
             <field name="model">siswa_ocb11.wizard_report_form_presensi</field>
             <field name="arch" type="xml">
-                <form string="Form Presensi Siswa" class="o_sale_order" create="false">
+                <form duplicate="0" string="Form Presensi Siswa" class="o_sale_order" create="false">
                     <sheet>
                         <group>
                             <group>

@@ -51,7 +51,7 @@
         <field name="name">siswa.ocb11.form</field>
         <field name="model">siswa_ocb11.siswa</field>
         <field name="arch" type="xml">
-            <form string="Siswa" class="o_sale_order">
+            <form duplicate="0" string="Siswa" class="o_sale_order">
               <sheet>
                   <div class="oe_button_box" name="button_box">
                       

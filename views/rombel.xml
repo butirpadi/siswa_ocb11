@@ -26,7 +26,7 @@
             <field name="name">rombel.ocb11.form</field>
             <field name="model">siswa_ocb11.rombel</field>
             <field name="arch" type="xml">
-                <form string="Rombongan Belajar" class="o_sale_order">
+                <form duplicate="0" string="Rombongan Belajar" class="o_sale_order">
                     <sheet>
                         <group>
                             <field name="name"/>
