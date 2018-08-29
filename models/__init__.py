@@ -11,3 +11,4 @@ from . import guru
 from . import rombel_dashboard
 from . import res_currency
 from . import res_company
+from . import res_lang
