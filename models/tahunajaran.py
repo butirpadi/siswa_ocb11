@@ -3,6 +3,7 @@
 from odoo import models, fields, api, _
 from pprint import pprint
 
+
 class tahunajaran(models.Model):
 	_name = 'siswa_ocb11.tahunajaran'
 
@@ -37,24 +38,33 @@ class tahunajaran(models.Model):
 		result = super(tahunajaran, self).create(vals)
 
 	# 	# auto generate tahunajaran_jenjang
-		jenjangs = self.env['siswa_ocb11.jenjang'].search([('name','ilike','%')])
+		jenjangs = self.env['siswa_ocb11.jenjang'].search([('name', 'ilike', '%')])
 		print('----------------------------------------')
 		print('Generating tahunajaran_jenjang : ')
 		print('----------------------------------------')
-		# pprint(jenjangs)
 		for jj in jenjangs:
-			print('Jenjang ' + jj.name)
-			self.env['siswa_ocb11.tahunajaran_jenjang'].create({
-				'name' : str(result.name) + ' ' + jj.name,
-				'tahunajaran_id' : result.id,
-				'jenjang_id' : jj.id
-			})
+			tahunajaran_jenjang_ids = self.env['siswa_ocb11.tahunajaran_jenjang'].search([('tahunajaran_id', '=', result.id),
+																						('jenjang_id', '=', jj.id)])
+			if not tahunajaran_jenjang_ids:
+				self.env['siswa_ocb11.tahunajaran_jenjang'].create({
+					'name' : str(result.name) + ' ' + jj.name,
+					'tahunajaran_id' : result.id,
+					'jenjang_id' : jj.id
+				})
+# 		# pprint(jenjangs)
+# 		for jj in jenjangs:
+# 			print('Jenjang ' + jj.name)
+# 			self.env['siswa_ocb11.tahunajaran_jenjang'].create({
+# 				'name' : str(result.name) + ' ' + jj.name,
+# 				'tahunajaran_id' : result.id,
+# 				'jenjang_id' : jj.id
+# 			})
 		
 		# generate dashboard rombel
 		print('----------------------------------------')
 		print('Generate rombel Dashboard')
 		print('----------------------------------------')
-		rombels = self.env['siswa_ocb11.rombel'].search([('name','ilike','%')])
+		rombels = self.env['siswa_ocb11.rombel'].search([('name', 'ilike', '%')])
 		for rb in rombels:
 			if rb.is_show_on_dashboard:
 				# create roimbel dashboard
@@ -62,7 +72,6 @@ class tahunajaran(models.Model):
                     'rombel_id' : rb.id,
                     'tahunajaran_id' : result.id,
                     })
-
 
 		# print(str(result.name) + ' PG')
 		# self.env['siswa_ocb11.tahunajaran_jenjang'].create({
@@ -88,7 +97,7 @@ class tahunajaran(models.Model):
 		if self.sort_order > 1:
 			# get prev item
 			ta_prev = self.env['siswa_ocb11.tahunajaran'].search([
-				('sort_order','=', self.sort_order-1)
+				('sort_order', '=', self.sort_order - 1)
 			])
 
 			# update prev sort_order
@@ -107,7 +116,7 @@ class tahunajaran(models.Model):
 		if self.sort_order < max_order[0]:
 			# get next item
 			ta_next = self.env['siswa_ocb11.tahunajaran'].search([
-				('sort_order','=', self.sort_order+1)
+				('sort_order', '=', self.sort_order + 1)
 			])
 
 			# update prev sort_order
