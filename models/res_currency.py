@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools, _
+from flectra import api, fields, models, tools, _
 
 class Currency(models.Model):
     _inherit = "res.currency"
@@ -14,4 +14,4 @@ class Currency(models.Model):
         ])
 
         # set default currency to rupiah
-        self.env.cr.execute("update res_company set currency_id = " + str(idr_currency_id[0].id))
+        self.env.cr.execute("update res_company set currency_id = " + str(idr_currency_id[0].id)) 

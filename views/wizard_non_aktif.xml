@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
         <record id="siswa_ocb11.wizard_non_aktif_form" model="ir.ui.view">
             <field name="name">wizard.ocb11.nonaktifkann.siswa</field>
@@ -39,4 +39,4 @@
             key2="client_action_multi"
             />
     </data>
-</odoo>
+</flectra>

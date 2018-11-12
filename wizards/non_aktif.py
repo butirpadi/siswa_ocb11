@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from flectra import models, fields, api
 from pprint import pprint
 from datetime import datetime
 
@@ -62,4 +62,4 @@ class non_aktif(models.TransientModel):
             'target': 'current',
             'domain' : [('active','=',False),('is_siswa','=',True)],
             'context' : {'group_by': ['non_aktif_selection']},
-        }
+        } 

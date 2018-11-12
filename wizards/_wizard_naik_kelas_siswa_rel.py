@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from flectra import models, fields, api
 from pprint import pprint
 
 class wizard_naik_kelas_siswa_rel(models.TransientModel):
@@ -12,4 +12,4 @@ class wizard_naik_kelas_siswa_rel(models.TransientModel):
     rombel_id = fields.Many2one('siswa_ocb1.rombel',string='Rombel')
     next_rombel_id = fields.Many2one('siswa_ocb1.rombel',string='Rombel Kenaikan')
 
-    
+     

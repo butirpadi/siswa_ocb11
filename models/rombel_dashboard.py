@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, exceptions 
+from flectra import models, fields, api, exceptions 
 from pprint import pprint
 
 class rombel_dashboard(models.Model):
@@ -67,4 +67,4 @@ class rombel_dashboard(models.Model):
             #get jumlah siswa perempuan
             data_siswa_perempuan = data_siswa.filtered(lambda r: r.siswa_id.jenis_kelamin == 'perempuan')
             rec.jumlah_perempuan = len(data_siswa_perempuan)
-            print('Jumlah Siswa Perempuan : ' + str(len(data_siswa_perempuan)))
+            print('Jumlah Siswa Perempuan : ' + str(len(data_siswa_perempuan))) 

@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
 
         <record id="siswa_ocb11.wizard_naik_kelas" model="ir.ui.view">
@@ -36,4 +36,4 @@
             target="new"
             key2="client_action_multi"/>
     </data>
-</odoo>
+</flectra>

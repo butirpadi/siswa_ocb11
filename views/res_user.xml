@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
         <!-- <record id="siswa_ocb11_res_user_form_filter" model="ir.ui.view" >
             <field name="name">siswa_ocb11.res_user_form</field>
@@ -27,4 +27,4 @@
             <field name="context">{'search_default_no_share': 1, 'default_tz': 'Asia/Jakarta'}</field>            
         </record>
     </data>
-</odoo>
+</flectra>

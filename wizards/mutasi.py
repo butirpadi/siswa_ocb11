@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from flectra import models, fields, api
 from pprint import pprint
 
 class mutasi(models.TransientModel):
@@ -29,4 +29,4 @@ class mutasi(models.TransientModel):
         })
         
         return result
-    
+     

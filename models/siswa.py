@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from flectra import models, fields, api, _
 from pprint import pprint
 from datetime import datetime, date
 
@@ -133,4 +133,4 @@ class siswa(models.Model):
             vals['rombels']
             
         result = super(siswa, self).write(vals)
-        return result
+        return result 

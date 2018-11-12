@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
 
         <record id="format_form_presensi_siswa" model="report.paperformat">
@@ -130,4 +130,4 @@
         </template>
 
     </data>
-</odoo>
+</flectra>

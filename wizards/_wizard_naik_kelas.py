@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from flectra import models, fields, api
 from pprint import pprint
 
 class wizard_naik_kelas(models.TransientModel):
@@ -11,4 +11,4 @@ class wizard_naik_kelas(models.TransientModel):
     next_jenjang_id = fields.Many2one('siswa_ocb11.jenjang', string='Jenjang Kenaikan')
     siswa_ids = fields.One2many('siswa_ocb11.wizard_naik_kelas_siswa_rel', inverse_name='wizard_id', string='Siswa')
 
-    
+     

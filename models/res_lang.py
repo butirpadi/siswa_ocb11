@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Flectra. See LICENSE file for full copyright and licensing details.
 
 import json
 import locale
@@ -7,9 +7,9 @@ import logging
 import re
 from operator import itemgetter
 
-from odoo import api, fields, models, tools, _
-from odoo.tools.safe_eval import safe_eval
-from odoo.exceptions import UserError, ValidationError
+from flectra import api, fields, models, tools, _
+from flectra.tools.safe_eval import safe_eval
+from flectra.exceptions import UserError, ValidationError
 
 
 class Lang(models.Model):
@@ -21,4 +21,4 @@ class Lang(models.Model):
         print('Update Default Date Format')
         self.env.cr.execute("update res_lang set date_format = '%d/%m/%Y' where active = 'true'")
         print('done')
-        print('--------------------------------')
+        print('--------------------------------') 

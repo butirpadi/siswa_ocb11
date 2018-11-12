@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
         <record id="siswa_dashboard_kanban_view" model="ir.ui.view">
             <field name="name">siswa.dashboard.view</field>
@@ -93,4 +93,4 @@
             </field>
         </record>
     </data>
-</odoo>
+</flectra>

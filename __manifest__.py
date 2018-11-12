@@ -14,13 +14,13 @@
     'website': "http://www.tepatguna.id",
 
     # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
+    # Check https://github.com/flectra/flectra/blob/master/flectra/addons/base/module/module_data.xml
     # for the full list
     'category': 'Education',
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'odoo_web_login'],
+    'depends': ['base', 'flectra_web_login'],
 
     # always loaded
     'data': [
@@ -57,4 +57,4 @@
     ],
     'installable': True,
     'application': True,
-}
+} 

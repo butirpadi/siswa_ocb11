@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
         <record model="ir.ui.view" id="siswa_ocb11.rombel_siswa_list">
             <field name="name">siswa_ocb11_rombel_siswa_list</field>
@@ -97,4 +97,4 @@
         </record>
 
     </data>
-</odoo>
+</flectra>

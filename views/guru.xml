@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
   <data>
     <!-- explicit list view definition -->
     
@@ -71,4 +71,4 @@
     </record>
     
   </data>
-</odoo>
+</flectra>

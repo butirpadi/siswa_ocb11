@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
         <record id="format_report_general" model="report.paperformat">
             <field name="name">Format Report Umum</field>
@@ -26,4 +26,4 @@
             <field name="header_spacing">1</field>
         </record>
     </data>
-</odoo>
+</flectra>

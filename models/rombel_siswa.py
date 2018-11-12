@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from flectra import models, fields, api
 
 class rombel_siswa(models.Model):
     _name = 'siswa_ocb11.rombel_siswa'
@@ -80,4 +80,4 @@ class rombel_siswa(models.Model):
     #     print('adding/deleting rombel_siswa')
             
     #     result = super(rombel_siswa, self).write(vals)
-    #     return result
+    #     return result 
