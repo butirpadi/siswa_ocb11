@@ -20,7 +20,7 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'flectra_web_login'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
